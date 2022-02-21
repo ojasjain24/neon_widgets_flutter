@@ -77,6 +77,7 @@ const SizedBox(
 ```
 Add items widget :
 <img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110455.png" >
+
 ```
 Wrap(
 direction: Axis.horizontal,
@@ -93,7 +94,8 @@ children: <Widget>[
 ```
 
 oNeonPoint widget :
-<img src="hhttps://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20190238.png" >
+<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20190238.png" >
+
 ```
 oNeonPoint(
   pointSize: 00,

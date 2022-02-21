@@ -1,20 +1,9 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
 # Neon_Widgets
 
-[![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/ojasjain24/flutter_widgets/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/ojasjain24/neon_widgets_flutter/blob/master/LICENSE)
 
-This package will provide you with most commonly used widgets with their normal and neon version.
+This package will provide you with most commonly used widgets with their normal and neon version. 
+There are multiple different types of widgets under this package, which can be used to create more neon theme widget
 
 ## Getting started
 
@@ -24,7 +13,7 @@ on it Run this command:
 With Flutter:
 
 ```
-$ flutter pub add o_widget_pacckage
+$ flutter pub add neon_widgets
 ```
 
 This will add a line like this to your package's pubspec.yaml (and run an implicit flutter pub get):
@@ -32,7 +21,7 @@ This will add a line like this to your package's pubspec.yaml (and run an implic
 dependencies:
 
 ```
-o_widget_pacckage: ^0.0.4
+neon_widgets_flutter: ^0.0.1
 ```
 
 Alternatively, your editor might support flutter pub get. Check the docs for your editor to learn
@@ -41,24 +30,24 @@ more.
 Import it Now in your Dart code, you can use:
 
 ```
-import 'package:o_widget_pacckage/o_widget_pacckage.dart';
+import 'package:neon_widgets_flutter/neon_widgets.dart';
 ```
 
 
 ## Features
 ### ExampleApp
 <img src="https://github.com/ojasjain24/flutter_widgets/blob/readme-1/oWidgetsDemo.gif" height="520" width="300">
-<img src="https://github.com/ojasjain24/o_widget_package/blob/master/demos/Screenshot%202022-02-21%20110732.png" >
+<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110732.png" >
 
 ### Widgets
 neonSearchBar :
-<img src="https://github.com/ojasjain24/o_widget_package/blob/master/demos/Screenshot%202022-02-21%20110254.png"  >
+<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110254.png"  >
 
 ```
 oNeonSearchBar()
 ```
 Chat widgets :
-<img src="https://github.com/ojasjain24/o_widget_package/blob/master/demos/Screenshot%202022-02-21%20110417.png" >
+<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110417.png" >
 
 ```
 oNeonRightMsgCard(
@@ -87,7 +76,7 @@ const SizedBox(
 ),
 ```
 Add items widget :
-<img src="https://github.com/ojasjain24/o_widget_package/blob/master/demos/Screenshot%202022-02-21%20110455.png" >
+<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110455.png" >
 ```
 Wrap(
 direction: Axis.horizontal,
@@ -101,39 +90,31 @@ children: <Widget>[
           lightBlurRadius: 18))),
 ],
 ),
-const SizedBox(
-height: 20,
+```
+
+oNeonPoint widget :
+<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%2022-02-21%190238.png" >
+```
+oNeonPoint(
+  pointSize: 00,
+  pointColor: Colors.red.shade100,
+  spreadColor: Colors.red,
 ),
-Wrap(
-direction: Axis.horizontal,
-children: <Widget>[
-  ...(searchedResults.map((e) =>
-      oNeonAddItemButton(
-          data: e,
-          borderColor: Colors.pink.shade50,
-          spreadColor: Colors.pinkAccent,
-          lightSpreadRadius: 3,
-          lightBlurRadius: 18))),
-],
-),
-const SizedBox(
-height: 20,
-),
-Wrap(
-direction: Axis.horizontal,
-children: <Widget>[
-  ...(searchedResults.map((e) =>
-      oNeonAddItemButton(
-          data: e,
-          borderColor: Colors.blue.shade50,
-          spreadColor: Colors.blue,
-          lightSpreadRadius: 3,
-          lightBlurRadius: 18))),
-],
+```
+oNeonLine widget :
+<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%2022-02-21%190619.png" >
+```
+oNeonLine(
+  spreadColor: Colors.brown,
+  lightSpreadRadius: 30,
+  lightBlurRadius: 90,
+  lineWidth: 400,
+  lineHeight: 0.02,
+  lineColor: Colors.brown.shade100,
 ),
 ```
 Non Neon widgets :
-<img src="https://github.com/ojasjain24/o_widget_package/blob/master/demos/Screenshot%202022-02-21%20110545.png" >
+<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110545.png" >
 ```
 oSearchBar(),
 const SizedBox(
@@ -181,6 +162,10 @@ oNeonContainer(
 ## Additional information
 
 Wanna improve this package? Contribute to project on
-github : https://github.com/ojasjain24/o_widget_package
-create issue : https://github.com/ojasjain24/o_widget_package/issues
+github : https://github.com/ojasjain24/neon_widgets_flutter
+create issue : https://github.com/ojasjain24/neon_widgets_flutter/issues
+
+## Contributing rules : 
+1 : create an issue describing the feature.
+2 : comment on this issue that you are interested in resolving this issue.
 

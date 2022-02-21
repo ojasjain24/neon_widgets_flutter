@@ -1,7 +1,7 @@
 name: neon_widgets_flutter
 description: A new Flutter project.
 version: 0.0.1
-homepage: 
+homepage: https://github.com/ojasjain24/neon_widgets_flutter
 
 environment:
   sdk: ">=2.15.1 <3.0.0"

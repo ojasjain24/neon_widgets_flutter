@@ -468,7 +468,7 @@ class oNeonPointState extends State<oNeonPoint> {
 class oNeonLine extends StatefulWidget {
   oNeonLine({
     this.spreadColor = Colors.deepPurple,
-    this.pointColor = Colors.white,
+    this.lineColor = Colors.white,
     this.lineWidth = 0.2,
     this.lineHeight = 20,
     this.lightBlurRadius = 100,
@@ -476,7 +476,7 @@ class oNeonLine extends StatefulWidget {
   });
 
   Color spreadColor;
-  Color pointColor;
+  Color lineColor;
   double lightBlurRadius;
   double lightSpreadRadius;
   double lineWidth;
@@ -494,12 +494,12 @@ class oNeonLineState extends State<oNeonLine> {
     return oNeonContainer(
         spreadColor: widget.spreadColor,
         borderColor: Colors.transparent,
-        containerColor: widget.pointColor,
+        containerColor: widget.lineColor,
         lightBlurRadius: widget.lightBlurRadius,
         lightSpreadRadius: widget.lightSpreadRadius,
         borderRadius: BorderRadius.circular(1000),
         child: Container(
-          color: widget.pointColor,
+          color: widget.lineColor,
           width: widget.lineWidth,
           height: widget.lineHeight,
         ));

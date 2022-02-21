@@ -10,31 +10,35 @@ There are multiple different types of widgets under this package, which can be u
 Readme Changelog Installing Versions Scores Admin Activity log Use this package as a library Depend
 on it Run this command:
 
+
+Run this command:
+
+With Dart:
+```
+ $ dart pub add neon_widgets
+```
+
 With Flutter:
+```
+ $ flutter pub add neon_widgets
+```
+
+This will add a line like this to your package's pubspec.yaml (and run an implicit dart pub get):
 
 ```
-$ flutter pub add neon_widgets
-```
-
-This will add a line like this to your package's pubspec.yaml (and run an implicit flutter pub get):
-
 dependencies:
-
-```
-neon_widgets_flutter: ^0.0.1
+  neon_widgets: ^0.0.1
 ```
 
-Alternatively, your editor might support flutter pub get. Check the docs for your editor to learn
-more.
+Alternatively, your editor might support dart pub get or flutter pub get. Check the docs for your editor to learn more.
 
-Import it Now in your Dart code, you can use:
+Import it
+Now in your Dart code, you can use:
 
 ```
-import 'package:neon_widgets_flutter/neon_widgets.dart';
+import 'package:neon_widgets/neon_widgets.dart';## Features
 ```
 
-
-## Features
 ### ExampleApp
 <img src="https://github.com/ojasjain24/flutter_widgets/blob/readme-1/oWidgetsDemo.gif" height="520" width="300">
 <img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110732.png" >
@@ -169,5 +173,6 @@ create issue : https://github.com/ojasjain24/neon_widgets_flutter/issues
 
 ## Contributing rules : 
 1 : create an issue describing the feature.
+
 2 : comment on this issue that you are interested in resolving this issue.
 

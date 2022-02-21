@@ -5,6 +5,8 @@
 This package will provide you with most commonly used widgets with their normal and neon version. 
 There are multiple different types of widgets under this package, which can be used to create more neon theme widget
 
+pub package : https://pub.dev/packages/neon_widgets
+
 ## Getting started
 
 Readme Changelog Installing Versions Scores Admin Activity log Use this package as a library Depend
@@ -36,8 +38,9 @@ Import it
 Now in your Dart code, you can use:
 
 ```
-import 'package:neon_widgets/neon_widgets.dart';## Features
+import 'package:neon_widgets/neon_widgets.dart';
 ```
+## Features
 
 ### ExampleApp
 <img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/oWidgetsDemo.gif" height="520" width="300">

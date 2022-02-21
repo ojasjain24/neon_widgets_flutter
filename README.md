@@ -40,7 +40,7 @@ import 'package:neon_widgets/neon_widgets.dart';## Features
 ```
 
 ### ExampleApp
-<img src="https://github.com/ojasjain24/flutter_widgets/blob/readme-1/oWidgetsDemo.gif" height="520" width="300">
+<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/oWidgetsDemo.gif" height="520" width="300">
 <img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110732.png" >
 
 ### Widgets

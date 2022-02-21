@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neon_widgets_flutter/neon_widgets.dart';
+import 'package:neon_widgets/neon_widgets.dart';
 
 class exampleApp extends StatefulWidget {
   @override

@@ -1,4 +1,4 @@
-library neon_widgets_flutter;
+library neon_widgets;
 
 export 'src/neon_widgets.dart';
 

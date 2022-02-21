@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:neon_widgets_flutter/neon_widgets.dart';
+import 'package:neon_widgets/neon_widgets.dart';
 
 void main() {
   test('adds one to input values', () {

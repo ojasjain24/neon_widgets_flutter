@@ -93,7 +93,7 @@ children: <Widget>[
 ```
 
 oNeonPoint widget :
-<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%2022-02-21%190238.png" >
+<img src="hhttps://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20190238.png" >
 ```
 oNeonPoint(
   pointSize: 00,
@@ -102,7 +102,7 @@ oNeonPoint(
 ),
 ```
 oNeonLine widget :
-<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%2022-02-21%190619.png" >
+<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20190619.png" >
 ```
 oNeonLine(
   spreadColor: Colors.brown,

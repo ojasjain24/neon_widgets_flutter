@@ -427,13 +427,13 @@ class oNeonLeftMsgCardState extends State<oNeonLeftMsgCard> {
 
 //oNeonPoint
 class oNeonPoint extends StatefulWidget {
-  oNeonPoint({
+  oNeonPoint({Key? key,
     this.spreadColor = Colors.deepPurple,
     this.pointColor = Colors.white,
     this.pointSize = 0.2,
     this.lightBlurRadius = 100,
     this.lightSpreadRadius = 50,
-  });
+  }) : super(key: key);
 
   Color spreadColor;
   Color pointColor;
@@ -466,14 +466,14 @@ class oNeonPointState extends State<oNeonPoint> {
 
 //oNeonLine
 class oNeonLine extends StatefulWidget {
-  oNeonLine({
+  oNeonLine({Key? key,
     this.spreadColor = Colors.deepPurple,
     this.lineColor = Colors.white,
     this.lineWidth = 0.2,
     this.lineHeight = 20,
     this.lightBlurRadius = 100,
     this.lightSpreadRadius = 50,
-  });
+  }) : super(key: key);
 
   Color spreadColor;
   Color lineColor;

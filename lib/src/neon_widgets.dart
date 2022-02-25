@@ -1,3 +1,6 @@
+import 'dart:io';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 //oNeonContainer
@@ -427,7 +430,8 @@ class oNeonLeftMsgCardState extends State<oNeonLeftMsgCard> {
 
 //oNeonPoint
 class oNeonPoint extends StatefulWidget {
-  oNeonPoint({Key? key,
+  oNeonPoint({
+    Key? key,
     this.spreadColor = Colors.deepPurple,
     this.pointColor = Colors.white,
     this.pointSize = 0.2,
@@ -466,7 +470,8 @@ class oNeonPointState extends State<oNeonPoint> {
 
 //oNeonLine
 class oNeonLine extends StatefulWidget {
-  oNeonLine({Key? key,
+  oNeonLine({
+    Key? key,
     this.spreadColor = Colors.deepPurple,
     this.lineColor = Colors.white,
     this.lineWidth = 0.2,
@@ -502,6 +507,204 @@ class oNeonLineState extends State<oNeonLine> {
           color: widget.lineColor,
           width: widget.lineWidth,
           height: widget.lineHeight,
+        ));
+  }
+}
+
+//Flicker neon widgets
+
+//oFlickerNeonContainer
+class oFlickerNeonContainer extends StatefulWidget {
+  oFlickerNeonContainer({
+    Key? key,
+    required this.child,
+    this.borderColor = Colors.white,
+    this.spreadColor = Colors.deepPurple,
+    this.containerColor = Colors.black45,
+    this.borderRadius = BorderRadius.zero,
+    this.clipBehaviour = Clip.antiAlias,
+    this.margin = EdgeInsets.zero,
+    this.borderWidth = 5,
+    this.lightSpreadRadius = 10,
+    this.lightBlurRadius = 60,
+    this.alignment = Alignment.center,
+    this.randomFlicker = true,
+    this.flickerTimeInMilliSeconds = 3000,
+  }) : super(key: key);
+
+  Widget child;
+  Color borderColor;
+  Color spreadColor;
+  Color containerColor;
+  BorderRadius borderRadius;
+  Clip clipBehaviour;
+  EdgeInsets margin;
+  double borderWidth;
+  double lightSpreadRadius;
+  double lightBlurRadius;
+  Alignment alignment;
+  bool randomFlicker;
+  int flickerTimeInMilliSeconds;
+
+  @override
+  State<StatefulWidget> createState() {
+    return oFlickerNeonContainerState();
+  }
+}
+
+class oFlickerNeonContainerState extends State<oFlickerNeonContainer>
+    with TickerProviderStateMixin {
+  late AnimationController controller;
+  int randomNumber = Random().nextInt(3000);
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+        duration: Duration(
+            milliseconds: widget.randomFlicker
+                ? randomNumber
+                : widget.flickerTimeInMilliSeconds),
+        vsync: this);
+
+    controller.addStatusListener((status) {
+      randomNumber = Random().nextInt(3000);
+      setState(() {});
+      if (status == AnimationStatus.completed) {
+        controller.repeat(
+            reverse: true,
+            period: Duration(
+                milliseconds: widget.randomFlicker
+                    ? randomNumber
+                    : widget.flickerTimeInMilliSeconds));
+      } else if (status == AnimationStatus.dismissed) {
+        sleep(const Duration(milliseconds: 200));
+        controller.forward();
+      }
+    });
+    controller.forward();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        margin: widget.margin,
+        clipBehavior: widget.clipBehaviour,
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            color: widget.spreadColor.withOpacity(controller.value),
+            blurRadius: widget.lightBlurRadius, // soften the shadow
+            spreadRadius: widget.lightSpreadRadius, //extend the shadow
+          ),
+        ], color: widget.containerColor, borderRadius: widget.borderRadius),
+        child: Container(
+          decoration: BoxDecoration(
+              borderRadius: widget.borderRadius,
+              border: Border.all(
+                  color: controller.value > 0.5
+                      ? widget.borderColor
+                      : Colors.white70,
+                  width: widget.borderWidth)),
+          child: widget.child,
+        ));
+  }
+}
+
+//oFlickerNeonPoint
+class oFlickerNeonPoint extends StatefulWidget {
+  oFlickerNeonPoint({
+    Key? key,
+    this.spreadColor = Colors.deepPurple,
+    this.pointColor = Colors.white,
+    this.pointSize = 0.2,
+    this.lightBlurRadius = 100,
+    this.lightSpreadRadius = 50,
+    this.randomFlicker = true,
+    this.flickerTimeInMilliSeconds = 3000,
+  }) : super(key: key);
+
+  Color spreadColor;
+  Color pointColor;
+  double lightBlurRadius;
+  double lightSpreadRadius;
+  double pointSize;
+  bool randomFlicker;
+  int flickerTimeInMilliSeconds;
+
+  @override
+  State<StatefulWidget> createState() {
+    return oFlickerNeonPointState();
+  }
+}
+
+class oFlickerNeonPointState extends State<oFlickerNeonPoint> {
+  @override
+  Widget build(BuildContext context) {
+    return oFlickerNeonContainer(
+        borderWidth: widget.pointSize,
+        randomFlicker: widget.randomFlicker,
+        flickerTimeInMilliSeconds: widget.flickerTimeInMilliSeconds,
+        spreadColor: widget.spreadColor,
+        borderColor: Colors.transparent,
+        containerColor: widget.pointColor,
+        lightBlurRadius: widget.lightBlurRadius,
+        lightSpreadRadius: widget.lightSpreadRadius,
+        borderRadius: BorderRadius.circular(1000),
+        child: const SizedBox(
+          width: 0,
+          height: 0,
+        ));
+  }
+}
+
+//oFlickerNeonLine
+class oFlickerNeonLine extends StatefulWidget {
+  oFlickerNeonLine({
+    Key? key,
+    this.spreadColor = Colors.deepPurple,
+    this.lineColor = Colors.white,
+    this.lineWidth = 0.2,
+    this.lineHeight = 20,
+    this.lightBlurRadius = 100,
+    this.lightSpreadRadius = 50,
+    this.randomFlicker = true,
+    this.flickerTimeInMilliSeconds = 3000,
+  }) : super(key: key);
+
+  Color spreadColor;
+  Color lineColor;
+  double lightBlurRadius;
+  double lightSpreadRadius;
+  double lineWidth;
+  double lineHeight;
+  bool randomFlicker;
+  int flickerTimeInMilliSeconds;
+
+  @override
+  State<StatefulWidget> createState() {
+    return oFlickerNeonLineState();
+  }
+}
+
+class oFlickerNeonLineState extends State<oFlickerNeonLine> {
+  @override
+  Widget build(BuildContext context) {
+    return oFlickerNeonContainer(
+        borderWidth: widget.lineWidth > widget.lineHeight
+            ? widget.lineHeight
+            : widget.lineWidth,
+        randomFlicker: widget.randomFlicker,
+        flickerTimeInMilliSeconds: widget.flickerTimeInMilliSeconds,
+        spreadColor: widget.spreadColor,
+        borderColor: Colors.transparent,
+        containerColor: widget.lineColor,
+        lightBlurRadius: widget.lightBlurRadius,
+        lightSpreadRadius: widget.lightSpreadRadius,
+        borderRadius: BorderRadius.circular(1000),
+        child: Container(
+          color: widget.lineColor,
+          width: widget.lineWidth > widget.lineHeight ? widget.lineWidth : 0,
+          height: widget.lineWidth > widget.lineHeight ? 0 : widget.lineHeight,
         ));
   }
 }

@@ -1,3 +1,6 @@
+import 'dart:io';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 //oAppBar
@@ -357,5 +360,67 @@ class oLeftMsgCardState extends State<oLeftMsgCard> {
         ],
       ),
     );
+  }
+}
+
+// Random Flicker
+class oFlicker extends StatefulWidget {
+  oFlicker({
+    Key? key,
+    required this.child,
+    this.randomFlicker = true,
+    this.flickerTimeInMilliSeconds = 3000,
+  }) : super(key: key);
+
+  Widget child;
+  bool randomFlicker;
+  int flickerTimeInMilliSeconds;
+
+  @override
+  State<StatefulWidget> createState() {
+    return oFlickerState();
+  }
+}
+
+class oFlickerState extends State<oFlicker> with TickerProviderStateMixin {
+  late AnimationController controller;
+  late Animation<double> curve;
+  int randomNumber = Random().nextInt(3000);
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+        duration: Duration(
+            milliseconds: widget.randomFlicker
+                ? randomNumber
+                : widget.flickerTimeInMilliSeconds),
+        vsync: this);
+    curve = CurvedAnimation(
+        parent: controller,
+        curve: Curves.easeInExpo,
+        reverseCurve: Curves.bounceIn);
+
+    controller.addStatusListener((status) {
+      randomNumber = Random().nextInt(3000);
+      setState(() {});
+      if (status == AnimationStatus.completed) {
+        controller.repeat(
+            reverse: true,
+            period: Duration(
+                milliseconds: widget.randomFlicker
+                    ? randomNumber
+                    : widget.flickerTimeInMilliSeconds));
+      } else if (status == AnimationStatus.dismissed) {
+        sleep(const Duration(milliseconds: 200));
+        controller.forward();
+      }
+    });
+    controller.forward();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FadeTransition(opacity: curve, child: widget.child);
   }
 }

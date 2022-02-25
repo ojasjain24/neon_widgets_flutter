@@ -43,8 +43,13 @@ import 'package:neon_widgets/neon_widgets.dart';
 ## Features
 
 ### ExampleApp
+Neon Widgets
 <img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/neonWidgets.gif" height="516" width="360">
 <img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110732.png" >
+
+Flickering Neon Widgets
+<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/flickerWidgetsDemo.gif" height="528" width="320">
+
 
 ### Widgets
 neonSearchBar :
@@ -122,6 +127,37 @@ oNeonLine(
   lineColor: Colors.brown.shade100,
 ),
 ```
+
+Flickering Neon widgets :
+```
+// Flickering neon line
+oFlickerNeonLine(
+  spreadColor: Colors.brown,
+  lightSpreadRadius: 30,
+  lightBlurRadius: 60,
+  lineWidth: 300,
+  lineHeight: 2,
+  lineColor: Colors.brown.shade100,
+),
+```
+
+```
+// Flickering neon point
+oFlickerNeonPoint(
+  pointSize: 010,
+  pointColor: Colors.blue.shade100,
+  spreadColor: Colors.blue,
+),
+```
+
+```
+// Flickering neon container
+oFlickerNeonContainer(
+    spreadColor: Colors.green.shade700,
+    child: WIDGET
+),
+```
+
 Non Neon widgets :
 <img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110545.png" >
 ```
@@ -147,8 +183,6 @@ Container(
       backgroundColor: Colors.purple),
 ),
 ```
-
-
 
 ## Usage
 

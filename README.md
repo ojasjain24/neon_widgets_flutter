@@ -1,4 +1,4 @@
-# Neon_Widgets
+# Neon Widgets
 Most commonly used flutter widgets in neon version. 
 
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/ojasjain24/neon_widgets_flutter/blob/master/LICENSE)

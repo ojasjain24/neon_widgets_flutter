@@ -1,9 +1,7 @@
 # Neon_Widgets
+Most commonly used flutter widgets in neon version. 
 
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/ojasjain24/neon_widgets_flutter/blob/master/LICENSE)
-
-This package will provide you with most commonly used widgets with their normal and neon version. 
-There are multiple different types of widgets under this package, which can be used to create more neon theme widget
 
 pub package : https://pub.dev/packages/neon_widgets
 

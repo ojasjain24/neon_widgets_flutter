@@ -1,7 +1,9 @@
 # Neon Widgets
 Most commonly used flutter widgets in neon version. 
 
-[![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/ojasjain24/neon_widgets_flutter/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/ojasjain24/neon_widgets_flutter?color=dark%20green)](https://github.com/ojasjain24/neon_widgets_flutter/blob/master/LICENSE)
+[![Pub](https://img.shields.io/badge/Pub-v0.0.2-blue)](https://pub.dev/packages/neon_widgets)
+[![GitHub stars](https://img.shields.io/github/stars/ojasjain24/neon_widgets_flutter?color=green&style=social)](https://github.com/ojasjain24/neon_widgets_flutter)
 
 pub package : https://pub.dev/packages/neon_widgets
 

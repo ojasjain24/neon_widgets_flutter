@@ -41,51 +41,84 @@ import 'package:neon_widgets/neon_widgets.dart';
 ## Features
 
 ### ExampleApp
-Neon Widgets
+Neon Widgets : 
+
 <img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/neonWidgets.gif" height="516" width="360">
 <img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110732.png" >
 
-Flickering Neon Widgets
+Flickering Neon Widgets 
+(with random flicker rate) :
+
 <img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/flickerWidgetsDemo.gif" height="528" width="320">
 
 
 ### Widgets
 neonSearchBar :
+
 <img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110254.png"  >
 
 ```
 oNeonSearchBar()
 ```
 Chat widgets :
+
 <img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110417.png" >
 
 ```
+// Left message card in neon theme
+oNeonLeftMsgCard(
+  lightBlurRadius: 20,
+  lightSpreadRadius: 5,
+  msg:
+      "Hi all, this is brand new library that provides most used widgets in neon and normal effect",
+  time: "10:45",
+),
+
+const SizedBox(
+  height: 20,
+),
+
+// Right message card in neon theme
 oNeonRightMsgCard(
     lightBlurRadius: 20,
     lightSpreadRadius: 10,
     backgroundColor: Colors.deepPurple,
     msg:
     "Hi all, this is brand new library that provides most used widgets in neon and normal effect",
-    time: "10:45"),
+    time: "10:45",
+ ),
+
 const SizedBox(
   height: 20,
 ),
+
+// Left massage card
+
 oLeftMsgCard(
     msg:
     "Hi all, this is brand new library that provides most used widgets in neon and normal effect",
-    time: "10:45"),
+    time: "10:45",
+),
+
 const SizedBox(
   height: 20,
 ),
+
+// Right massage card
+
 oRightMsgCard(
     msg:
     "Hi all, this is brand new library that provides most used widgets in neon and normal effect",
-    time: "10:45"),
+    time: "10:45",
+),
+
 const SizedBox(
   height: 20,
 ),
+
 ```
 Add items widget :
+
 <img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110455.png" >
 
 ```
@@ -104,6 +137,7 @@ children: <Widget>[
 ```
 
 oNeonPoint widget :
+
 <img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20190238.png" >
 
 ```
@@ -114,7 +148,9 @@ oNeonPoint(
 ),
 ```
 oNeonLine widget :
+
 <img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20190619.png" >
+
 ```
 oNeonLine(
   spreadColor: Colors.brown,
@@ -136,6 +172,10 @@ oFlickerNeonLine(
   lineWidth: 300,
   lineHeight: 2,
   lineColor: Colors.brown.shade100,
+  
+  // flicker rate which is selects a random value by default
+  randomFlicker: false,
+  flickerTimeInMilliSeconds: 1000,
 ),
 ```
 
@@ -157,7 +197,9 @@ oFlickerNeonContainer(
 ```
 
 Non Neon widgets :
+
 <img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110545.png" >
+
 ```
 oSearchBar(),
 const SizedBox(

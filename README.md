@@ -1,12 +1,17 @@
-# Neon Widgets
-Most commonly used flutter widgets in neon version. 
+<p align="center"> 
+<img src = "https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/neon_widgets_logo.png" height = "300" width ="300"/>
+</p>
+
+<h1 align="center"> Neon Widgets💡 </h1>
+ <h3 align="center"> Most commonly used flutter widgets in neon version.
 
 [![License](https://img.shields.io/github/license/ojasjain24/neon_widgets_flutter?color=dark%20green)](https://github.com/ojasjain24/neon_widgets_flutter/blob/master/LICENSE)
 [![Pub](https://img.shields.io/badge/Pub-v0.0.2-blue)](https://pub.dev/packages/neon_widgets)
 [![GitHub stars](https://img.shields.io/github/stars/ojasjain24/neon_widgets_flutter?color=green&style=social)](https://github.com/ojasjain24/neon_widgets_flutter)
 
-## Getting started
 
+## Getting started
+ 
 Readme Changelog Installing Versions Scores Admin Activity log Use this package as a library Depend
 on it Run this command:
 
@@ -245,7 +250,9 @@ oNeonContainer(
 ## Additional information
 
 Wanna improve this package? Contribute to project on
+ 
 github : https://github.com/ojasjain24/neon_widgets_flutter
+
 create issue : https://github.com/ojasjain24/neon_widgets_flutter/issues
 
 ## Contributing rules : 

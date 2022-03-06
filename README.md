@@ -32,7 +32,7 @@ This will add a line like this to your package's pubspec.yaml (and run an implic
 
 ```
 dependencies:
-  neon_widgets: ^0.0.2
+  neon_widgets: ^0.0.3
 ```
 
 Alternatively, your editor might support dart pub get or flutter pub get. Check the docs for your editor to learn more.
@@ -56,7 +56,10 @@ Flickering Neon Widgets
 
 <img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/flickerWidgetsDemo.gif" height="528" width="320">
 
-
+Loaders : 
+ 
+ <img src = "https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/loaders.gif" />
+ 
 ### Widgets
 neonSearchBar :
 
@@ -199,6 +202,23 @@ oFlickerNeonContainer(
     spreadColor: Colors.green.shade700,
     child: WIDGET
 ),
+```
+ 
+Loaders : 
+
+```
+ //loader type 1 : loader made of polynomial of n number of side
+ oNeonShapeVerticesProgressBar(number: 4)
+ 
+ //loader type 2 : triangle shape with all colors customizable
+ oNeonTriangleVerticesProgressBar()
+ 
+ //loader type 3 : square shape with all colors customizable
+ oNeonSquareVerticesProgressBar()
+ 
+ //loader type 4 : image 
+ oImageProgressBar(image : "assets/images/abc.png")
+ 
 ```
 
 Non Neon widgets :

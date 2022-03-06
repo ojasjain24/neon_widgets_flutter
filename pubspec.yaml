@@ -1,6 +1,6 @@
 name: neon_widgets
-description: A new Flutter project.
-version: 0.0.2
+description: The complete neon solution. This package provides Neon widgets with and without flicker effect.
+version: 0.0.3
 homepage: https://github.com/ojasjain24/neon_widgets_flutter
 
 environment:
@@ -23,8 +23,9 @@ dev_dependencies:
 flutter:
 
   # To add assets to your package, add an assets section, like this:
+
   # assets:
-  #   - images/a_dot_burr.jpeg
+  #   - assets/images/
   #   - images/a_dot_ham.jpeg
   #
   # For details regarding assets in packages, see

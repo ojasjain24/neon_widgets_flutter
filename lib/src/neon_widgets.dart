@@ -455,6 +455,7 @@ class oNeonPointState extends State<oNeonPoint> {
   @override
   Widget build(BuildContext context) {
     return oNeonContainer(
+      borderWidth: widget.pointSize,
         spreadColor: widget.spreadColor,
         borderColor: Colors.transparent,
         containerColor: widget.pointColor,
@@ -462,8 +463,8 @@ class oNeonPointState extends State<oNeonPoint> {
         lightSpreadRadius: widget.lightSpreadRadius,
         borderRadius: BorderRadius.circular(1000),
         child: SizedBox(
-          width: widget.pointSize,
-          height: widget.pointSize,
+          width: 0,
+          height: 0,
         ));
   }
 }
@@ -497,6 +498,9 @@ class oNeonLineState extends State<oNeonLine> {
   @override
   Widget build(BuildContext context) {
     return oNeonContainer(
+        borderWidth: widget.lineWidth > widget.lineHeight
+            ? widget.lineHeight
+            : widget.lineWidth,
         spreadColor: widget.spreadColor,
         borderColor: Colors.transparent,
         containerColor: widget.lineColor,
@@ -505,13 +509,15 @@ class oNeonLineState extends State<oNeonLine> {
         borderRadius: BorderRadius.circular(1000),
         child: Container(
           color: widget.lineColor,
-          width: widget.lineWidth,
-          height: widget.lineHeight,
+          width: widget.lineWidth > widget.lineHeight ? widget.lineWidth : 0,
+          height: widget.lineWidth > widget.lineHeight ? 0 : widget.lineHeight,
         ));
   }
 }
 
+//
 //Flicker neon widgets
+//
 
 //oFlickerNeonContainer
 class oFlickerNeonContainer extends StatefulWidget {
@@ -568,7 +574,7 @@ class oFlickerNeonContainerState extends State<oFlickerNeonContainer>
         vsync: this);
 
     controller.addStatusListener((status) {
-      randomNumber = Random().nextInt(3000);
+      randomNumber = Random().nextInt(widget.flickerTimeInMilliSeconds);
       setState(() {});
       if (status == AnimationStatus.completed) {
         controller.repeat(

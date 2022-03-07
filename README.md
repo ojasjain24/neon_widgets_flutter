@@ -1,5 +1,5 @@
 <p align="center"> 
-<img src = "https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/neon_widgets_logo.png" height = "300" width ="300"/>
+<img src = "https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/neon_widgets_logo.png" height = "300" width ="300"/>
 </p>
 
 <h1 align="center"> Neon Widgets💡 </h1>
@@ -48,29 +48,29 @@ import 'package:neon_widgets/neon_widgets.dart';
 ### ExampleApp
 Neon Widgets : 
 
-<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/neonWidgets.gif" height="516" width="360">
-<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110732.png" >
+<img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/neonWidgets.gif" height="516" width="360">
+<img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/Screenshot%202022-02-21%20110732.png" height="580" width="360" >
 
 Flickering Neon Widgets 
 (with random flicker rate) :
 
-<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/flickerWidgetsDemo.gif" height="528" width="320">
+<img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/flickerWidgetsDemo.gif" height="594" width="360">
 
 Loaders : 
  
- <img src = "https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/loaders.gif" />
+ <img src = "https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/loaders.gif" />
  
 ### Widgets
 neonSearchBar :
 
-<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110254.png"  >
+<img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/Screenshot%202022-02-21%20110254.png"  >
 
 ```
 oNeonSearchBar()
 ```
 Chat widgets :
 
-<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110417.png" >
+<img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/Screenshot%202022-02-21%20110417.png" >
 
 ```
 // Left message card in neon theme
@@ -127,7 +127,7 @@ const SizedBox(
 ```
 Add items widget :
 
-<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110455.png" >
+<img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/Screenshot%202022-02-21%20110455.png" >
 
 ```
 Wrap(
@@ -146,7 +146,7 @@ children: <Widget>[
 
 oNeonPoint widget :
 
-<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20190238.png" >
+<img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/Screenshot%202022-02-21%20190238.png" >
 
 ```
 oNeonPoint(
@@ -157,7 +157,7 @@ oNeonPoint(
 ```
 oNeonLine widget :
 
-<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20190619.png" >
+<img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/Screenshot%202022-02-21%20190619.png" >
 
 ```
 oNeonLine(
@@ -223,7 +223,7 @@ Loaders :
 
 Non Neon widgets :
 
-<img src="https://github.com/ojasjain24/neon_widgets_flutter/blob/master/demos/Screenshot%202022-02-21%20110545.png" >
+<img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/Screenshot%202022-02-21%20110545.png" >
 
 ```
 oSearchBar(),

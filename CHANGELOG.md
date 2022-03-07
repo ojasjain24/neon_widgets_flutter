@@ -7,6 +7,6 @@ There are multiple different types of widgets under this package, which can be u
 
 Flickering widgets now available, with random and constant flicker intensity.
 
-## 0.0.2
+## 0.0.3
 
 Loaders/ progressBars in neon theme.

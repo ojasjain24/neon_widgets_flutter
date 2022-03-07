@@ -10,3 +10,7 @@ Flickering widgets now available, with random and constant flicker intensity.
 ## 0.0.3
 
 Loaders/ progressBars in neon theme.
+
+## 0.0.4
+
+readme updates

@@ -17,7 +17,6 @@ class oNeonContainer extends StatefulWidget {
     this.borderWidth = 5,
     this.lightSpreadRadius = 10,
     this.lightBlurRadius = 60,
-    this.alignment = Alignment.center,
     this.transform,
     this.transformAlignment = Alignment.center,
   }) : super(key: key);
@@ -32,7 +31,6 @@ class oNeonContainer extends StatefulWidget {
   double borderWidth;
   double lightSpreadRadius;
   double lightBlurRadius;
-  Alignment alignment;
   Matrix4? transform;
   Alignment transformAlignment;
 
@@ -48,7 +46,6 @@ class oNeonContainerState extends State<oNeonContainer> {
     return Container(
         transform: widget.transform ?? Matrix4.rotationZ(0),
         transformAlignment: widget.transformAlignment,
-        alignment: widget.alignment,
         margin: widget.margin,
         clipBehavior: widget.clipBehaviour,
         decoration: BoxDecoration(
@@ -633,7 +630,7 @@ class oFlickerNeonContainerState extends State<oFlickerNeonContainer>
                 spreadRadius: widget.lightSpreadRadius, //extend the shadow
               ),
             ],
-            color: widget.containerColor,
+            color: widget.containerColor.withOpacity(controller.value),
             borderRadius: widget.borderRadius,
             border: Border.all(
                 color: controller.value > 0.5

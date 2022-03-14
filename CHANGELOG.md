@@ -14,3 +14,7 @@ Loaders/ progressBars in neon theme.
 ## 0.0.4
 
 readme updates
+
+## 0.0.5
+
+fixes

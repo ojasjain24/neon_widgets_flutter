@@ -5,20 +5,22 @@ import 'package:flutter/material.dart';
 
 //oNeonContainer
 class oNeonContainer extends StatefulWidget {
-  oNeonContainer({
-    Key? key,
-    required this.child,
-    this.borderColor = Colors.white,
-    this.spreadColor = Colors.deepPurple,
-    this.containerColor = Colors.black45,
-    this.borderRadius = BorderRadius.zero,
-    this.clipBehaviour = Clip.antiAlias,
-    this.margin = EdgeInsets.zero,
-    this.borderWidth = 5,
-    this.lightSpreadRadius = 10,
-    this.lightBlurRadius = 60,
-    this.alignment = Alignment.center,
-  }) : super(key: key);
+  oNeonContainer(
+      {Key? key,
+      required this.child,
+      this.borderColor = Colors.white,
+      this.spreadColor = Colors.deepPurple,
+      this.containerColor = Colors.black45,
+      this.borderRadius = BorderRadius.zero,
+      this.clipBehaviour = Clip.antiAlias,
+      this.margin = EdgeInsets.zero,
+      this.borderWidth = 5,
+      this.lightSpreadRadius = 10,
+      this.lightBlurRadius = 60,
+      this.alignment = Alignment.center,
+      this.transform,
+      this.transformAlignment = Alignment.center})
+      : super(key: key);
 
   Widget child;
   Color borderColor;
@@ -31,6 +33,8 @@ class oNeonContainer extends StatefulWidget {
   double lightSpreadRadius;
   double lightBlurRadius;
   Alignment alignment;
+  Matrix4? transform;
+  Alignment transformAlignment;
 
   @override
   State<StatefulWidget> createState() {
@@ -42,22 +46,27 @@ class oNeonContainerState extends State<oNeonContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
+        transform: widget.transform ?? Matrix4.rotationZ(0),
+        transformAlignment: widget.transformAlignment,
+        alignment: widget.alignment,
         margin: widget.margin,
         clipBehavior: widget.clipBehaviour,
-        decoration: BoxDecoration(boxShadow: [
-          BoxShadow(
-            color: widget.spreadColor,
-            blurRadius: widget.lightBlurRadius, // soften the shadow
-            spreadRadius: widget.lightSpreadRadius, //extend the shadow
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: widget.spreadColor,
+              blurRadius: widget.lightBlurRadius, // soften the shadow
+              spreadRadius: widget.lightSpreadRadius, //extend the shadow
+            ),
+          ],
+          color: widget.containerColor,
+          borderRadius: widget.borderRadius,
+          border: Border.all(
+            color: widget.borderColor,
+            width: widget.borderWidth,
           ),
-        ], color: widget.containerColor, borderRadius: widget.borderRadius),
-        child: Container(
-          decoration: BoxDecoration(
-              borderRadius: widget.borderRadius,
-              border: Border.all(
-                  color: widget.borderColor, width: widget.borderWidth)),
-          child: widget.child,
-        ));
+        ),
+        child: widget.child);
   }
 }
 
@@ -172,7 +181,7 @@ class oNeonAddItemButton extends StatefulWidget {
   oNeonAddItemButton({
     Key? key,
     this.data = "",
-    this.icon = Icons.add,
+    this.icon,
     this.onPressed,
     this.textColor = Colors.white,
     this.margin = const EdgeInsets.all(5),
@@ -189,7 +198,7 @@ class oNeonAddItemButton extends StatefulWidget {
   }) : super(key: key);
 
   String data;
-  IconData icon;
+  IconData? icon;
   void Function()? onPressed;
   Color textColor;
   EdgeInsets margin;
@@ -243,11 +252,13 @@ class oNeonAddItemButtonState extends State<oNeonAddItemButton> {
               const SizedBox(
                 width: 5,
               ),
-              Icon(
-                widget.icon,
-                size: widget.iconSize,
-                color: widget.iconColor,
-              )
+              widget.icon == null
+                  ? Container()
+                  : Icon(
+                      widget.icon,
+                      size: widget.iconSize,
+                      color: widget.iconColor,
+                    )
             ],
           ),
         ),
@@ -455,7 +466,7 @@ class oNeonPointState extends State<oNeonPoint> {
   @override
   Widget build(BuildContext context) {
     return oNeonContainer(
-      borderWidth: widget.pointSize,
+        borderWidth: widget.pointSize,
         spreadColor: widget.spreadColor,
         borderColor: Colors.transparent,
         containerColor: widget.pointColor,
@@ -596,23 +607,22 @@ class oFlickerNeonContainerState extends State<oFlickerNeonContainer>
     return Container(
         margin: widget.margin,
         clipBehavior: widget.clipBehaviour,
-        decoration: BoxDecoration(boxShadow: [
-          BoxShadow(
-            color: widget.spreadColor.withOpacity(controller.value),
-            blurRadius: widget.lightBlurRadius, // soften the shadow
-            spreadRadius: widget.lightSpreadRadius, //extend the shadow
-          ),
-        ], color: widget.containerColor, borderRadius: widget.borderRadius),
-        child: Container(
-          decoration: BoxDecoration(
-              borderRadius: widget.borderRadius,
-              border: Border.all(
-                  color: controller.value > 0.5
-                      ? widget.borderColor
-                      : Colors.white70,
-                  width: widget.borderWidth)),
-          child: widget.child,
-        ));
+        decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: widget.spreadColor.withOpacity(controller.value),
+                blurRadius: widget.lightBlurRadius, // soften the shadow
+                spreadRadius: widget.lightSpreadRadius, //extend the shadow
+              ),
+            ],
+            color: widget.containerColor,
+            borderRadius: widget.borderRadius,
+            border: Border.all(
+                color: controller.value > 0.5
+                    ? widget.borderColor
+                    : Colors.white70,
+                width: widget.borderWidth)),
+        child: widget.child);
   }
 }
 

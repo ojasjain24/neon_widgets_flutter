@@ -5,22 +5,22 @@ import 'package:flutter/material.dart';
 
 //oNeonContainer
 class oNeonContainer extends StatefulWidget {
-  oNeonContainer(
-      {Key? key,
-      required this.child,
-      this.borderColor = Colors.white,
-      this.spreadColor = Colors.deepPurple,
-      this.containerColor = Colors.black45,
-      this.borderRadius = BorderRadius.zero,
-      this.clipBehaviour = Clip.antiAlias,
-      this.margin = EdgeInsets.zero,
-      this.borderWidth = 5,
-      this.lightSpreadRadius = 10,
-      this.lightBlurRadius = 60,
-      this.alignment = Alignment.center,
-      this.transform,
-      this.transformAlignment = Alignment.center})
-      : super(key: key);
+  oNeonContainer({
+    Key? key,
+    required this.child,
+    this.borderColor = Colors.white,
+    this.spreadColor = Colors.deepPurple,
+    this.containerColor = Colors.black45,
+    this.borderRadius = BorderRadius.zero,
+    this.clipBehaviour = Clip.antiAlias,
+    this.margin = EdgeInsets.zero,
+    this.borderWidth = 5,
+    this.lightSpreadRadius = 10,
+    this.lightBlurRadius = 60,
+    this.alignment = Alignment.center,
+    this.transform,
+    this.transformAlignment = Alignment.center,
+  }) : super(key: key);
 
   Widget child;
   Color borderColor;
@@ -443,6 +443,8 @@ class oNeonLeftMsgCardState extends State<oNeonLeftMsgCard> {
 class oNeonPoint extends StatefulWidget {
   oNeonPoint({
     Key? key,
+    this.transform,
+    this.transformAlignment = Alignment.center,
     this.spreadColor = Colors.deepPurple,
     this.pointColor = Colors.white,
     this.pointSize = 0.2,
@@ -455,6 +457,8 @@ class oNeonPoint extends StatefulWidget {
   double lightBlurRadius;
   double lightSpreadRadius;
   double pointSize;
+  Matrix4? transform;
+  Alignment transformAlignment;
 
   @override
   State<StatefulWidget> createState() {
@@ -466,6 +470,8 @@ class oNeonPointState extends State<oNeonPoint> {
   @override
   Widget build(BuildContext context) {
     return oNeonContainer(
+        transform: widget.transform,
+        transformAlignment: widget.transformAlignment,
         borderWidth: widget.pointSize,
         spreadColor: widget.spreadColor,
         borderColor: Colors.transparent,
@@ -473,7 +479,7 @@ class oNeonPointState extends State<oNeonPoint> {
         lightBlurRadius: widget.lightBlurRadius,
         lightSpreadRadius: widget.lightSpreadRadius,
         borderRadius: BorderRadius.circular(1000),
-        child: SizedBox(
+        child: const SizedBox(
           width: 0,
           height: 0,
         ));
@@ -484,6 +490,8 @@ class oNeonPointState extends State<oNeonPoint> {
 class oNeonLine extends StatefulWidget {
   oNeonLine({
     Key? key,
+    this.transform,
+    this.transformAlignment = Alignment.center,
     this.spreadColor = Colors.deepPurple,
     this.lineColor = Colors.white,
     this.lineWidth = 0.2,
@@ -492,6 +500,8 @@ class oNeonLine extends StatefulWidget {
     this.lightSpreadRadius = 50,
   }) : super(key: key);
 
+  Matrix4? transform;
+  Alignment transformAlignment;
   Color spreadColor;
   Color lineColor;
   double lightBlurRadius;
@@ -509,6 +519,8 @@ class oNeonLineState extends State<oNeonLine> {
   @override
   Widget build(BuildContext context) {
     return oNeonContainer(
+        transform: widget.transform,
+        transformAlignment: widget.transformAlignment,
         borderWidth: widget.lineWidth > widget.lineHeight
             ? widget.lineHeight
             : widget.lineWidth,
@@ -535,6 +547,8 @@ class oFlickerNeonContainer extends StatefulWidget {
   oFlickerNeonContainer({
     Key? key,
     required this.child,
+    this.transform,
+    this.transformAlignment = Alignment.center,
     this.borderColor = Colors.white,
     this.spreadColor = Colors.deepPurple,
     this.containerColor = Colors.black45,
@@ -562,6 +576,8 @@ class oFlickerNeonContainer extends StatefulWidget {
   Alignment alignment;
   bool randomFlicker;
   int flickerTimeInMilliSeconds;
+  Matrix4? transform;
+  Alignment transformAlignment;
 
   @override
   State<StatefulWidget> createState() {
@@ -605,6 +621,8 @@ class oFlickerNeonContainerState extends State<oFlickerNeonContainer>
   @override
   Widget build(BuildContext context) {
     return Container(
+        transformAlignment: widget.transformAlignment,
+        transform: widget.transform ?? Matrix4.rotationZ(0),
         margin: widget.margin,
         clipBehavior: widget.clipBehaviour,
         decoration: BoxDecoration(
@@ -630,6 +648,8 @@ class oFlickerNeonContainerState extends State<oFlickerNeonContainer>
 class oFlickerNeonPoint extends StatefulWidget {
   oFlickerNeonPoint({
     Key? key,
+    this.transform,
+    this.transformAlignment = Alignment.center,
     this.spreadColor = Colors.deepPurple,
     this.pointColor = Colors.white,
     this.pointSize = 0.2,
@@ -639,6 +659,8 @@ class oFlickerNeonPoint extends StatefulWidget {
     this.flickerTimeInMilliSeconds = 3000,
   }) : super(key: key);
 
+  Matrix4? transform;
+  Alignment transformAlignment;
   Color spreadColor;
   Color pointColor;
   double lightBlurRadius;
@@ -657,6 +679,8 @@ class oFlickerNeonPointState extends State<oFlickerNeonPoint> {
   @override
   Widget build(BuildContext context) {
     return oFlickerNeonContainer(
+        transform: widget.transform,
+        transformAlignment: widget.transformAlignment,
         borderWidth: widget.pointSize,
         randomFlicker: widget.randomFlicker,
         flickerTimeInMilliSeconds: widget.flickerTimeInMilliSeconds,
@@ -677,6 +701,8 @@ class oFlickerNeonPointState extends State<oFlickerNeonPoint> {
 class oFlickerNeonLine extends StatefulWidget {
   oFlickerNeonLine({
     Key? key,
+    this.transform,
+    this.transformAlignment = Alignment.center,
     this.spreadColor = Colors.deepPurple,
     this.lineColor = Colors.white,
     this.lineWidth = 0.2,
@@ -687,6 +713,8 @@ class oFlickerNeonLine extends StatefulWidget {
     this.flickerTimeInMilliSeconds = 3000,
   }) : super(key: key);
 
+  Matrix4? transform;
+  Alignment transformAlignment;
   Color spreadColor;
   Color lineColor;
   double lightBlurRadius;
@@ -706,6 +734,8 @@ class oFlickerNeonLineState extends State<oFlickerNeonLine> {
   @override
   Widget build(BuildContext context) {
     return oFlickerNeonContainer(
+        transform: widget.transform,
+        transformAlignment: widget.transformAlignment,
         borderWidth: widget.lineWidth > widget.lineHeight
             ? widget.lineHeight
             : widget.lineWidth,

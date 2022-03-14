@@ -18,3 +18,7 @@ readme updates
 ## 0.0.5
 
 fixes
+
+## 0.0.6
+
+fixes

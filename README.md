@@ -32,7 +32,7 @@ This will add a line like this to your package's pubspec.yaml (and run an implic
 
 ```
 dependencies:
-  neon_widgets: ^0.0.5
+  neon_widgets: ^0.0.6
 ```
 
 Alternatively, your editor might support dart pub get or flutter pub get. Check the docs for your editor to learn more.

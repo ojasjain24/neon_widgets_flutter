@@ -39,3 +39,6 @@ readme updates
 
 fix
 
+## 0.1.1
+
+neon text fixes

@@ -550,6 +550,12 @@ class oNeonText extends StatefulWidget {
     this.spreadColor = Colors.deepPurple,
     this.blurRadius = 20,
     this.textColor = Colors.white,
+    this.fontFamily,
+    this.wordSpacing,
+    this.maxLine,
+    this.textHeightBehavior,
+    this.letterSpacing,
+    this.textWidgetBasis,
   }) : super(key: key);
 
   String text;
@@ -837,6 +843,12 @@ class oFlickerNeonText extends StatefulWidget {
     this.textColor = Colors.white,
     this.randomFlicker = true,
     this.flickerTimeInMilliSeconds = 3000,
+    this.fontFamily,
+    this.wordSpacing,
+    this.maxLine,
+    this.textHeightBehavior,
+    this.letterSpacing,
+    this.textWidgetBasis,
   }) : super(key: key);
 
   String text;

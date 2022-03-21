@@ -33,7 +33,7 @@ This will add a line like this to your package's pubspec.yaml (and run an implic
 
 ```
 dependencies:
-  neon_widgets: ^0.0.8
+  neon_widgets: ^0.0.9
 ```
 
 Alternatively, your editor might support dart pub get or flutter pub get. Check the docs for your editor to learn more.
@@ -58,10 +58,38 @@ Flickering Neon Widgets
 <img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/flickerWidgetsDemo.gif" height="594" width="360">
 
 Loaders : 
- 
+
  <img src = "https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/loaders.gif" />
  
 ### Widgets
+
+neonText : 
+ 
+<img src = "https://user-images.githubusercontent.com/59116312/159339246-fda62119-75c2-4d5d-8f44-6c8f85db9800.gif"/>
+
+
+```
+// neon text
+
+ oNeonText(
+   text: "Neon text",
+   spreadColor: Colors.pink,
+   blurRadius: 20,
+   textSize: 74,
+   textColor: Colors.white,
+ ),
+ 
+// flickering neon text
+ 
+ oFlickerNeonText(
+   text: "Flicker neon text",
+   flickerTimeInMilliSeconds: 600,
+   spreadColor: Colors.blue,
+   blurRadius: 20,
+   textSize: 74,
+ ),
+```
+ 
 neonSearchBar :
 
 <img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/Screenshot%202022-02-21%20110254.png"  >

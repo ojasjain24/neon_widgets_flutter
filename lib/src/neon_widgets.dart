@@ -535,6 +535,75 @@ class oNeonLineState extends State<oNeonLine> {
   }
 }
 
+class oNeonText extends StatefulWidget {
+  oNeonText({
+    Key? key,
+    required this.text,
+    this.textAlign = TextAlign.center,
+    this.fontStyle = FontStyle.normal,
+    this.textOverflow = TextOverflow.visible,
+    this.textWidthBasis = TextWidthBasis.parent,
+    this.textDirection = TextDirection.ltr,
+    this.isSoftWrap = true,
+    this.maxLine = 1,
+    this.textSize = 20,
+    this.fontWeight = FontWeight.normal,
+    this.spreadColor = Colors.deepPurple,
+    this.blurRadius = 20,
+    this.textColor = Colors.white,
+  }) : super(key: key);
+
+  String text;
+  TextAlign textAlign;
+  FontWeight fontWeight;
+  double textSize, blurRadius;
+  Color textColor, spreadColor;
+  TextOverflow textOverflow;
+  bool isSoftWrap;
+  TextDirection textDirection;
+  TextWidthBasis textWidthBasis;
+  FontStyle fontStyle;
+  String? fontFamily;
+  double? wordSpacing, letterSpacing;
+  TextWidthBasis? textWidgetBasis;
+  TextHeightBehavior? textHeightBehavior;
+  int? maxLine;
+
+  @override
+  State<StatefulWidget> createState() {
+    return oNeonTextState();
+  }
+}
+
+class oNeonTextState extends State<oNeonText> {
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      widget.text,
+      textAlign: widget.textAlign,
+      style: TextStyle(
+        fontWeight: widget.fontWeight,
+        fontSize: widget.textSize,
+        color: widget.textColor,
+        shadows: [
+          Shadow(color: widget.spreadColor, blurRadius: widget.blurRadius),
+        ],
+        fontStyle: widget.fontStyle,
+        fontFamily: widget.fontFamily,
+        wordSpacing: widget.wordSpacing,
+        overflow: widget.textOverflow,
+        letterSpacing: widget.letterSpacing,
+      ),
+      maxLines: widget.maxLine,
+      overflow: widget.textOverflow,
+      softWrap: widget.isSoftWrap,
+      textDirection: widget.textDirection,
+      textHeightBehavior: widget.textHeightBehavior,
+      textWidthBasis: widget.textWidgetBasis,
+    );
+  }
+}
+
 //
 //Flicker neon widgets
 //
@@ -749,5 +818,112 @@ class oFlickerNeonLineState extends State<oFlickerNeonLine> {
           width: widget.lineWidth > widget.lineHeight ? widget.lineWidth : 0,
           height: widget.lineWidth > widget.lineHeight ? 0 : widget.lineHeight,
         ));
+  }
+}
+
+class oFlickerNeonText extends StatefulWidget {
+  oFlickerNeonText({
+    Key? key,
+    required this.text,
+    this.textAlign = TextAlign.center,
+    this.fontStyle = FontStyle.normal,
+    this.textOverflow = TextOverflow.visible,
+    this.textWidthBasis = TextWidthBasis.parent,
+    this.textDirection = TextDirection.ltr,
+    this.isSoftWrap = true,
+    this.maxLine = 1,
+    this.textSize = 20,
+    this.fontWeight = FontWeight.normal,
+    this.spreadColor = Colors.deepPurple,
+    this.blurRadius = 20,
+    this.textColor = Colors.white,
+    this.randomFlicker = true,
+    this.flickerTimeInMilliSeconds = 3000,
+  }) : super(key: key);
+
+  String text;
+  TextAlign textAlign;
+  FontWeight fontWeight;
+  double textSize, blurRadius;
+  Color textColor, spreadColor;
+  TextOverflow textOverflow;
+  bool isSoftWrap;
+  TextDirection textDirection;
+  TextWidthBasis textWidthBasis;
+  FontStyle fontStyle;
+  String? fontFamily;
+  double? wordSpacing, letterSpacing;
+  TextWidthBasis? textWidgetBasis;
+  TextHeightBehavior? textHeightBehavior;
+  int? maxLine;
+  bool randomFlicker;
+  int flickerTimeInMilliSeconds;
+
+  @override
+  State<StatefulWidget> createState() {
+    return oFlickerNeonTextState();
+  }
+}
+
+class oFlickerNeonTextState extends State<oFlickerNeonText>
+    with TickerProviderStateMixin {
+  late AnimationController controller;
+  int randomNumber = Random().nextInt(3000);
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+        duration: Duration(
+            milliseconds: widget.randomFlicker
+                ? randomNumber
+                : widget.flickerTimeInMilliSeconds),
+        vsync: this);
+
+    controller.addStatusListener((status) {
+      randomNumber = Random().nextInt(widget.flickerTimeInMilliSeconds);
+      setState(() {});
+      if (status == AnimationStatus.completed) {
+        controller.repeat(
+            reverse: true,
+            period: Duration(
+                milliseconds: widget.randomFlicker
+                    ? randomNumber
+                    : widget.flickerTimeInMilliSeconds));
+      } else if (status == AnimationStatus.dismissed) {
+        sleep(const Duration(milliseconds: 200));
+        controller.forward();
+      }
+    });
+    controller.forward();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      widget.text,
+      textAlign: widget.textAlign,
+      style: TextStyle(
+        fontWeight: widget.fontWeight,
+        fontSize: widget.textSize,
+        color: controller.value > 0.5 ? widget.textColor : Colors.white70,
+        shadows: [
+          Shadow(
+              color: widget.spreadColor.withOpacity(controller.value),
+              blurRadius: widget.blurRadius),
+        ],
+        fontStyle: widget.fontStyle,
+        fontFamily: widget.fontFamily,
+        wordSpacing: widget.wordSpacing,
+        overflow: widget.textOverflow,
+        letterSpacing: widget.letterSpacing,
+      ),
+      maxLines: widget.maxLine,
+      overflow: widget.textOverflow,
+      softWrap: widget.isSoftWrap,
+      textDirection: widget.textDirection,
+      textHeightBehavior: widget.textHeightBehavior,
+      textWidthBasis: widget.textWidgetBasis,
+    );
   }
 }

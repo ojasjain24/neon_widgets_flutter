@@ -26,3 +26,7 @@ fixes
 ## 0.0.7
 
 fixes
+
+## 0.0.8
+
+neon texts

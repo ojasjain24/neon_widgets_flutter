@@ -1,6 +1,6 @@
 name: neon_widgets
 description: The complete neon solution. This package provides Neon widgets with and without flicker effect.
-version: 0.0.7
+version: 0.0.8
 homepage: https://github.com/ojasjain24/neon_widgets_flutter
 
 environment:

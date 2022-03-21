@@ -6,7 +6,7 @@
  <h3 align="center"> Most commonly used flutter widgets in neon version.
 
 [![License](https://img.shields.io/github/license/ojasjain24/neon_widgets_flutter?color=dark%20green)](https://github.com/ojasjain24/neon_widgets_flutter/blob/master/LICENSE)
-[![Pub](https://img.shields.io/badge/Pub-v0.0.4-blue)](https://pub.dev/packages/neon_widgets)
+[![Pub](https://img.shields.io/pub/v/neon_widgets?color=blue)](https://pub.dev/packages/neon_widgets)
 [![GitHub stars](https://img.shields.io/github/stars/ojasjain24/neon_widgets_flutter?color=green&style=social)](https://github.com/ojasjain24/neon_widgets_flutter)
 
 ## Live Example : https://myportfolio-67882.web.app/#/

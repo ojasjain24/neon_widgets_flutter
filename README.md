@@ -10,21 +10,22 @@
 [![GitHub stars](https://img.shields.io/github/stars/ojasjain24/neon_widgets_flutter?color=green&style=social)](https://github.com/ojasjain24/neon_widgets_flutter)
 
 ## Live Example : https://myportfolio-67882.web.app/#/
- 
+
 ## Getting started
- 
+
 Readme Changelog Installing Versions Scores Admin Activity log Use this package as a library Depend
 on it Run this command:
-
 
 Run this command:
 
 With Dart:
+
 ```
  $ dart pub add neon_widgets
 ```
 
 With Flutter:
+
 ```
  $ flutter pub add neon_widgets
 ```
@@ -33,40 +34,41 @@ This will add a line like this to your package's pubspec.yaml (and run an implic
 
 ```
 dependencies:
-  neon_widgets: ^0.1.1
+  neon_widgets: ^0.1.2
 ```
 
-Alternatively, your editor might support dart pub get or flutter pub get. Check the docs for your editor to learn more.
+Alternatively, your editor might support dart pub get or flutter pub get. Check the docs for your
+editor to learn more.
 
-Import it
-Now in your Dart code, you can use:
+Import it Now in your Dart code, you can use:
 
 ```
 import 'package:neon_widgets/neon_widgets.dart';
 ```
+
 ## Features
 
 ### ExampleApp
-Neon Widgets : 
+
+Neon Widgets :
 
 <img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/neonWidgets.gif" height="516" width="360">
 <img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/Screenshot%202022-02-21%20110732.png" height="580" width="360" >
 
-Flickering Neon Widgets 
+Flickering Neon Widgets
 (with random flicker rate) :
 
 <img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/flickerWidgetsDemo.gif" height="594" width="360">
 
-Loaders : 
+Loaders :
 
  <img src = "https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/loaders.gif" />
- 
+
 ### Widgets
 
-neonText : 
- 
-<img src = "https://user-images.githubusercontent.com/59116312/159339246-fda62119-75c2-4d5d-8f44-6c8f85db9800.gif"/>
+neonText :
 
+<img src = "https://user-images.githubusercontent.com/59116312/159339246-fda62119-75c2-4d5d-8f44-6c8f85db9800.gif"/>
 
 ```
 // neon text
@@ -89,7 +91,7 @@ neonText :
    textSize: 74,
  ),
 ```
- 
+
 neonSearchBar :
 
 <img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/Screenshot%202022-02-21%20110254.png"  >
@@ -97,6 +99,7 @@ neonSearchBar :
 ```
 oNeonSearchBar()
 ```
+
 Chat widgets :
 
 <img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/Screenshot%202022-02-21%20110417.png" >
@@ -154,6 +157,7 @@ const SizedBox(
 ),
 
 ```
+
 Add items widget :
 
 <img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/Screenshot%202022-02-21%20110455.png" >
@@ -184,6 +188,7 @@ oNeonPoint(
   spreadColor: Colors.red,
 ),
 ```
+
 oNeonLine widget :
 
 <img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/Screenshot%202022-02-21%20190619.png" >
@@ -200,6 +205,7 @@ oNeonLine(
 ```
 
 Flickering Neon widgets :
+
 ```
 // Flickering neon line
 oFlickerNeonLine(
@@ -232,8 +238,8 @@ oFlickerNeonContainer(
     child: WIDGET
 ),
 ```
- 
-Loaders : 
+
+Loaders :
 
 ```
  //loader type 1 : loader made of polynomial of n number of side
@@ -299,12 +305,13 @@ oNeonContainer(
 ## Additional information
 
 Wanna improve this package? Contribute to project on
- 
+
 github : https://github.com/ojasjain24/neon_widgets_flutter
 
 create issue : https://github.com/ojasjain24/neon_widgets_flutter/issues
 
-## Contributing rules : 
+## Contributing rules :
+
 1 : create an issue describing the feature.
 
 2 : comment on this issue that you are interested in resolving this issue.

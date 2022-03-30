@@ -3,6 +3,28 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+/*Properties :
+  Widget child;
+  Color borderColor;
+  Color spreadColor;
+  Color containerColor;
+  BorderRadius borderRadius;
+  Clip clipBehaviour;
+  EdgeInsets margin, padding;
+  double borderWidth;
+  double lightSpreadRadius;
+  double lightBlurRadius;
+  Matrix4? transform;
+  Alignment transformAlignment;
+  double? width;
+  double? height;
+  Alignment? alignment;
+  bool randomFlicker;
+  int flickerTimeInMilliSeconds;
+
+
+* */
+
 //oNeonContainer
 class oNeonContainer extends StatefulWidget {
   oNeonContainer({
@@ -18,7 +40,11 @@ class oNeonContainer extends StatefulWidget {
     this.lightSpreadRadius = 10,
     this.lightBlurRadius = 60,
     this.transform,
+    this.padding = EdgeInsets.zero,
     this.transformAlignment = Alignment.center,
+    this.width,
+    this.height,
+    this.alignment,
   }) : super(key: key);
 
   Widget child;
@@ -27,12 +53,14 @@ class oNeonContainer extends StatefulWidget {
   Color containerColor;
   BorderRadius borderRadius;
   Clip clipBehaviour;
-  EdgeInsets margin;
+  EdgeInsets margin, padding;
   double borderWidth;
   double lightSpreadRadius;
   double lightBlurRadius;
   Matrix4? transform;
   Alignment transformAlignment;
+  double? width, height;
+  Alignment? alignment;
 
   @override
   State<StatefulWidget> createState() {
@@ -44,26 +72,31 @@ class oNeonContainerState extends State<oNeonContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        transform: widget.transform ?? Matrix4.rotationZ(0),
-        transformAlignment: widget.transformAlignment,
-        margin: widget.margin,
-        clipBehavior: widget.clipBehaviour,
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: widget.spreadColor,
-              blurRadius: widget.lightBlurRadius, // soften the shadow
-              spreadRadius: widget.lightSpreadRadius, //extend the shadow
-            ),
-          ],
-          color: widget.containerColor,
-          borderRadius: widget.borderRadius,
-          border: Border.all(
-            color: widget.borderColor,
-            width: widget.borderWidth,
+      width: widget.width,
+      height: widget.height,
+      padding: widget.padding,
+      transform: widget.transform ?? Matrix4.rotationZ(0),
+      transformAlignment: widget.transformAlignment,
+      margin: widget.margin,
+      clipBehavior: widget.clipBehaviour,
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: widget.spreadColor,
+            blurRadius: widget.lightBlurRadius, // soften the shadow
+            spreadRadius: widget.lightSpreadRadius, //extend the shadow
           ),
+        ],
+        color: widget.containerColor,
+        borderRadius: widget.borderRadius,
+        border: Border.all(
+          color: widget.borderColor,
+          width: widget.borderWidth,
         ),
-        child: widget.child);
+      ),
+      child: widget.child,
+      alignment: widget.alignment,
+    );
   }
 }
 
@@ -89,6 +122,13 @@ class oNeonSearchBar extends StatefulWidget {
     this.lightBlurRadius = 30,
     this.hintFontWeight = FontWeight.w100,
     this.textFontWeight = FontWeight.bold,
+    this.transform,
+    this.alignment,
+    this.width = double.infinity,
+    this.height,
+    this.clip = Clip.antiAlias,
+    this.margin = EdgeInsets.zero,
+    this.transformAlignment = Alignment.center,
   }) : super(key: key);
 
   String hint;
@@ -110,6 +150,15 @@ class oNeonSearchBar extends StatefulWidget {
   FontWeight hintFontWeight;
   FontWeight textFontWeight;
 
+  Alignment? alignment;
+  double? height;
+  double width;
+
+  EdgeInsets margin;
+  Clip clip;
+  Matrix4? transform;
+  Alignment transformAlignment;
+
   @override
   State<StatefulWidget> createState() {
     return oNeonSearchBarState();
@@ -119,22 +168,17 @@ class oNeonSearchBar extends StatefulWidget {
 class oNeonSearchBarState extends State<oNeonSearchBar> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return oNeonContainer(
       padding: widget.padding,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: widget.spreadColor,
-            blurRadius: widget.lightBlurRadius, // soften the shadow
-            spreadRadius: widget.lightSpreadRadius, //extend the shadow
-          ),
-        ],
-        border:
-            Border.all(color: widget.borderColor, width: widget.borderWidth),
-        color: widget.backgroundColor,
-        borderRadius: widget.borderRadius,
-      ),
+      spreadColor: widget.spreadColor,
+      lightBlurRadius: widget.lightBlurRadius,
+      // soften the shadow
+      lightSpreadRadius: widget.lightSpreadRadius,
+      //extend the shadow
+      borderColor: widget.borderColor,
+      borderWidth: widget.borderWidth,
+      borderRadius: widget.borderRadius,
+      containerColor: widget.backgroundColor,
       child: Row(
         children: [
           Flexible(
@@ -169,6 +213,14 @@ class oNeonSearchBarState extends State<oNeonSearchBar> {
           ),
         ],
       ),
+
+      width: widget.width,
+      alignment: widget.alignment,
+      margin: widget.margin,
+      clipBehaviour: widget.clip,
+      transform: widget.transform,
+      transformAlignment: widget.transformAlignment,
+      height: widget.height,
     );
   }
 }
@@ -447,6 +499,10 @@ class oNeonPoint extends StatefulWidget {
     this.pointSize = 0.2,
     this.lightBlurRadius = 100,
     this.lightSpreadRadius = 50,
+    this.padding = EdgeInsets.zero,
+    this.margin = EdgeInsets.zero,
+    this.clip = Clip.antiAlias,
+    this.alignment,
   }) : super(key: key);
 
   Color spreadColor;
@@ -456,6 +512,9 @@ class oNeonPoint extends StatefulWidget {
   double pointSize;
   Matrix4? transform;
   Alignment transformAlignment;
+  EdgeInsets padding, margin;
+  Alignment? alignment;
+  Clip clip;
 
   @override
   State<StatefulWidget> createState() {
@@ -467,19 +526,24 @@ class oNeonPointState extends State<oNeonPoint> {
   @override
   Widget build(BuildContext context) {
     return oNeonContainer(
-        transform: widget.transform,
-        transformAlignment: widget.transformAlignment,
-        borderWidth: widget.pointSize,
-        spreadColor: widget.spreadColor,
-        borderColor: Colors.transparent,
-        containerColor: widget.pointColor,
-        lightBlurRadius: widget.lightBlurRadius,
-        lightSpreadRadius: widget.lightSpreadRadius,
-        borderRadius: BorderRadius.circular(1000),
-        child: const SizedBox(
-          width: 0,
-          height: 0,
-        ));
+      transform: widget.transform,
+      transformAlignment: widget.transformAlignment,
+      borderWidth: widget.pointSize,
+      spreadColor: widget.spreadColor,
+      borderColor: Colors.transparent,
+      containerColor: widget.pointColor,
+      lightBlurRadius: widget.lightBlurRadius,
+      lightSpreadRadius: widget.lightSpreadRadius,
+      borderRadius: BorderRadius.circular(1000),
+      child: const SizedBox(
+        width: 0,
+        height: 0,
+      ),
+      padding: widget.padding,
+      margin: widget.margin,
+      clipBehaviour: widget.clip,
+      alignment: widget.alignment,
+    );
   }
 }
 
@@ -495,6 +559,10 @@ class oNeonLine extends StatefulWidget {
     this.lineHeight = 20,
     this.lightBlurRadius = 100,
     this.lightSpreadRadius = 50,
+    this.padding = EdgeInsets.zero,
+    this.margin = EdgeInsets.zero,
+    this.clip = Clip.antiAlias,
+    this.alignment,
   }) : super(key: key);
 
   Matrix4? transform;
@@ -505,6 +573,9 @@ class oNeonLine extends StatefulWidget {
   double lightSpreadRadius;
   double lineWidth;
   double lineHeight;
+  EdgeInsets padding, margin;
+  Alignment? alignment;
+  Clip clip;
 
   @override
   State<StatefulWidget> createState() {
@@ -516,22 +587,27 @@ class oNeonLineState extends State<oNeonLine> {
   @override
   Widget build(BuildContext context) {
     return oNeonContainer(
-        transform: widget.transform,
-        transformAlignment: widget.transformAlignment,
-        borderWidth: widget.lineWidth > widget.lineHeight
-            ? widget.lineHeight
-            : widget.lineWidth,
-        spreadColor: widget.spreadColor,
-        borderColor: Colors.transparent,
-        containerColor: widget.lineColor,
-        lightBlurRadius: widget.lightBlurRadius,
-        lightSpreadRadius: widget.lightSpreadRadius,
-        borderRadius: BorderRadius.circular(1000),
-        child: Container(
-          color: widget.lineColor,
-          width: widget.lineWidth > widget.lineHeight ? widget.lineWidth : 0,
-          height: widget.lineWidth > widget.lineHeight ? 0 : widget.lineHeight,
-        ));
+      transform: widget.transform,
+      transformAlignment: widget.transformAlignment,
+      borderWidth: widget.lineWidth > widget.lineHeight
+          ? widget.lineHeight
+          : widget.lineWidth,
+      spreadColor: widget.spreadColor,
+      borderColor: Colors.transparent,
+      containerColor: widget.lineColor,
+      lightBlurRadius: widget.lightBlurRadius,
+      lightSpreadRadius: widget.lightSpreadRadius,
+      borderRadius: BorderRadius.circular(1000),
+      child: Container(
+        color: widget.lineColor,
+        width: widget.lineWidth > widget.lineHeight ? widget.lineWidth : 0,
+        height: widget.lineWidth > widget.lineHeight ? 0 : widget.lineHeight,
+      ),
+      alignment: widget.alignment,
+      margin: widget.margin,
+      padding: widget.padding,
+      clipBehaviour: widget.clip,
+    );
   }
 }
 
@@ -626,12 +702,15 @@ class oFlickerNeonContainer extends StatefulWidget {
     this.borderRadius = BorderRadius.zero,
     this.clipBehaviour = Clip.antiAlias,
     this.margin = EdgeInsets.zero,
+    this.padding = EdgeInsets.zero,
     this.borderWidth = 5,
     this.lightSpreadRadius = 10,
     this.lightBlurRadius = 60,
-    this.alignment = Alignment.center,
+    this.alignment,
     this.randomFlicker = true,
     this.flickerTimeInMilliSeconds = 3000,
+    this.height,
+    this.width,
   }) : super(key: key);
 
   Widget child;
@@ -640,15 +719,16 @@ class oFlickerNeonContainer extends StatefulWidget {
   Color containerColor;
   BorderRadius borderRadius;
   Clip clipBehaviour;
-  EdgeInsets margin;
+  EdgeInsets margin, padding;
   double borderWidth;
   double lightSpreadRadius;
   double lightBlurRadius;
-  Alignment alignment;
+  Alignment? alignment;
   bool randomFlicker;
   int flickerTimeInMilliSeconds;
   Matrix4? transform;
   Alignment transformAlignment;
+  double? width, height;
 
   @override
   State<StatefulWidget> createState() {
@@ -692,30 +772,35 @@ class oFlickerNeonContainerState extends State<oFlickerNeonContainer>
   @override
   Widget build(BuildContext context) {
     return Container(
-        transformAlignment: widget.transformAlignment,
-        transform: widget.transform ?? Matrix4.rotationZ(0),
-        margin: widget.margin,
-        clipBehavior: widget.clipBehaviour,
-        decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: widget.spreadColor.withOpacity(controller.value),
-                blurRadius: widget.lightBlurRadius, // soften the shadow
-                spreadRadius: widget.lightSpreadRadius, //extend the shadow
-              ),
-            ],
-            color: widget.containerColor.withOpacity(controller.value),
-            borderRadius: widget.borderRadius,
-            border: Border.all(
-                color: controller.value > 0.5
-                    ? widget.borderColor
-                    : Colors.white70,
-                width: widget.borderWidth)),
-        child: widget.child);
+      padding: widget.padding,
+      transformAlignment: widget.transformAlignment,
+      transform: widget.transform ?? Matrix4.rotationZ(0),
+      margin: widget.margin,
+      clipBehavior: widget.clipBehaviour,
+      decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: widget.spreadColor.withOpacity(controller.value),
+              blurRadius: widget.lightBlurRadius, // soften the shadow
+              spreadRadius: widget.lightSpreadRadius, //extend the shadow
+            ),
+          ],
+          color: widget.containerColor.withOpacity(controller.value),
+          borderRadius: widget.borderRadius,
+          border: Border.all(
+              color:
+                  controller.value > 0.5 ? widget.borderColor : Colors.white70,
+              width: widget.borderWidth)),
+      child: widget.child,
+      alignment: widget.alignment,
+      height: widget.height,
+      width: widget.width,
+    );
   }
 }
 
 //oFlickerNeonPoint
+
 class oFlickerNeonPoint extends StatefulWidget {
   oFlickerNeonPoint({
     Key? key,
@@ -728,6 +813,8 @@ class oFlickerNeonPoint extends StatefulWidget {
     this.lightSpreadRadius = 50,
     this.randomFlicker = true,
     this.flickerTimeInMilliSeconds = 3000,
+    this.padding = EdgeInsets.zero,
+    this.margin = EdgeInsets.zero,
   }) : super(key: key);
 
   Matrix4? transform;
@@ -740,6 +827,8 @@ class oFlickerNeonPoint extends StatefulWidget {
   bool randomFlicker;
   int flickerTimeInMilliSeconds;
 
+  EdgeInsets padding, margin;
+
   @override
   State<StatefulWidget> createState() {
     return oFlickerNeonPointState();
@@ -750,25 +839,29 @@ class oFlickerNeonPointState extends State<oFlickerNeonPoint> {
   @override
   Widget build(BuildContext context) {
     return oFlickerNeonContainer(
-        transform: widget.transform,
-        transformAlignment: widget.transformAlignment,
-        borderWidth: widget.pointSize,
-        randomFlicker: widget.randomFlicker,
-        flickerTimeInMilliSeconds: widget.flickerTimeInMilliSeconds,
-        spreadColor: widget.spreadColor,
-        borderColor: Colors.transparent,
-        containerColor: widget.pointColor,
-        lightBlurRadius: widget.lightBlurRadius,
-        lightSpreadRadius: widget.lightSpreadRadius,
-        borderRadius: BorderRadius.circular(1000),
-        child: const SizedBox(
-          width: 0,
-          height: 0,
-        ));
+      transform: widget.transform,
+      transformAlignment: widget.transformAlignment,
+      borderWidth: widget.pointSize,
+      randomFlicker: widget.randomFlicker,
+      flickerTimeInMilliSeconds: widget.flickerTimeInMilliSeconds,
+      spreadColor: widget.spreadColor,
+      borderColor: Colors.transparent,
+      containerColor: widget.pointColor,
+      lightBlurRadius: widget.lightBlurRadius,
+      lightSpreadRadius: widget.lightSpreadRadius,
+      borderRadius: BorderRadius.circular(1000),
+      child: const SizedBox(
+        width: 0,
+        height: 0,
+      ),
+      margin: widget.margin,
+      padding: widget.padding,
+    );
   }
 }
 
 //oFlickerNeonLine
+
 class oFlickerNeonLine extends StatefulWidget {
   oFlickerNeonLine({
     Key? key,
@@ -782,6 +875,10 @@ class oFlickerNeonLine extends StatefulWidget {
     this.lightSpreadRadius = 50,
     this.randomFlicker = true,
     this.flickerTimeInMilliSeconds = 3000,
+    this.padding = EdgeInsets.zero,
+    this.margin = EdgeInsets.zero,
+    this.clip = Clip.antiAlias,
+    this.alignment,
   }) : super(key: key);
 
   Matrix4? transform;
@@ -794,6 +891,9 @@ class oFlickerNeonLine extends StatefulWidget {
   double lineHeight;
   bool randomFlicker;
   int flickerTimeInMilliSeconds;
+  EdgeInsets padding, margin;
+  Alignment? alignment;
+  Clip clip;
 
   @override
   State<StatefulWidget> createState() {
@@ -805,24 +905,29 @@ class oFlickerNeonLineState extends State<oFlickerNeonLine> {
   @override
   Widget build(BuildContext context) {
     return oFlickerNeonContainer(
-        transform: widget.transform,
-        transformAlignment: widget.transformAlignment,
-        borderWidth: widget.lineWidth > widget.lineHeight
-            ? widget.lineHeight
-            : widget.lineWidth,
-        randomFlicker: widget.randomFlicker,
-        flickerTimeInMilliSeconds: widget.flickerTimeInMilliSeconds,
-        spreadColor: widget.spreadColor,
-        borderColor: Colors.transparent,
-        containerColor: widget.lineColor,
-        lightBlurRadius: widget.lightBlurRadius,
-        lightSpreadRadius: widget.lightSpreadRadius,
-        borderRadius: BorderRadius.circular(1000),
-        child: Container(
-          color: widget.lineColor,
-          width: widget.lineWidth > widget.lineHeight ? widget.lineWidth : 0,
-          height: widget.lineWidth > widget.lineHeight ? 0 : widget.lineHeight,
-        ));
+      transform: widget.transform,
+      transformAlignment: widget.transformAlignment,
+      borderWidth: widget.lineWidth > widget.lineHeight
+          ? widget.lineHeight
+          : widget.lineWidth,
+      randomFlicker: widget.randomFlicker,
+      flickerTimeInMilliSeconds: widget.flickerTimeInMilliSeconds,
+      spreadColor: widget.spreadColor,
+      borderColor: Colors.transparent,
+      containerColor: widget.lineColor,
+      lightBlurRadius: widget.lightBlurRadius,
+      lightSpreadRadius: widget.lightSpreadRadius,
+      borderRadius: BorderRadius.circular(1000),
+      child: Container(
+        color: widget.lineColor,
+        width: widget.lineWidth > widget.lineHeight ? widget.lineWidth : 0,
+        height: widget.lineWidth > widget.lineHeight ? 0 : widget.lineHeight,
+      ),
+      alignment: widget.alignment,
+      margin: widget.margin,
+      padding: widget.padding,
+      clipBehaviour: widget.clip,
+    );
   }
 }
 

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:neon_widgets/neon_widgets.dart';
 
-class exampleApp extends StatefulWidget {
+class ExampleApp extends StatefulWidget {
+  const ExampleApp({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
-    return exampleAppState();
+    return ExampleAppState();
   }
 }
 
-class exampleAppState extends State<exampleApp> {
+class ExampleAppState extends State<ExampleApp> {
   @override
   Widget build(BuildContext context) {
     List<String> searchedResults = [
@@ -39,11 +41,11 @@ class exampleAppState extends State<exampleApp> {
                   const SizedBox(
                     height: 20,
                   ),
-                  oNeonSearchBar(hint: "Search here..."),
+                  const NeonSearchBar(hint: "Search here..."),
                   const SizedBox(
                     height: 20,
                   ),
-                  oNeonContainer(
+                  NeonContainer(
                       spreadColor: Colors.teal.shade200,
                       borderColor: Colors.teal.shade50,
                       containerColor: Colors.black,
@@ -54,7 +56,7 @@ class exampleAppState extends State<exampleApp> {
                         padding: const EdgeInsets.all(10),
                         child: Column(
                           children: [
-                            oNeonLeftMsgCard(
+                            const NeonLeftMsgCard(
                                 lightBlurRadius: 10,
                                 lightSpreadRadius: 5,
                                 msg:
@@ -63,7 +65,7 @@ class exampleAppState extends State<exampleApp> {
                             const SizedBox(
                               height: 20,
                             ),
-                            oNeonRightMsgCard(
+                            const NeonRightMsgCard(
                                 lightBlurRadius: 20,
                                 lightSpreadRadius: 10,
                                 backgroundColor: Colors.deepPurple,
@@ -73,14 +75,14 @@ class exampleAppState extends State<exampleApp> {
                             const SizedBox(
                               height: 20,
                             ),
-                            oLeftMsgCard(
+                            const LeftMsgCard(
                                 msg:
                                     "Hi all, this is brand new library that provides most used widgets in neon and normal effect",
                                 time: "10:45"),
                             const SizedBox(
                               height: 20,
                             ),
-                            oRightMsgCard(
+                            const RightMsgCard(
                                 msg:
                                     "Hi all, this is brand new library that provides most used widgets in neon and normal effect",
                                 time: "10:45"),
@@ -91,7 +93,7 @@ class exampleAppState extends State<exampleApp> {
                               direction: Axis.horizontal,
                               children: <Widget>[
                                 ...(searchedResults.map((e) =>
-                                    oNeonAddItemButton(
+                                    NeonAddItemButton(
                                         data: e,
                                         borderColor: Colors.deepOrange.shade50,
                                         spreadColor: Colors.deepOrange,
@@ -106,7 +108,7 @@ class exampleAppState extends State<exampleApp> {
                               direction: Axis.horizontal,
                               children: <Widget>[
                                 ...(searchedResults.map((e) =>
-                                    oNeonAddItemButton(
+                                    NeonAddItemButton(
                                         data: e,
                                         borderColor: Colors.pink.shade50,
                                         spreadColor: Colors.pinkAccent,
@@ -121,7 +123,7 @@ class exampleAppState extends State<exampleApp> {
                               direction: Axis.horizontal,
                               children: <Widget>[
                                 ...(searchedResults.map((e) =>
-                                    oNeonAddItemButton(
+                                    NeonAddItemButton(
                                         data: e,
                                         borderColor: Colors.blue.shade50,
                                         spreadColor: Colors.blue,
@@ -132,7 +134,7 @@ class exampleAppState extends State<exampleApp> {
                             const SizedBox(
                               height: 20,
                             ),
-                            oSearchBar(),
+                            const SearchBar(),
                             const SizedBox(
                               height: 20,
                             ),
@@ -140,7 +142,7 @@ class exampleAppState extends State<exampleApp> {
                               direction: Axis.horizontal,
                               children: <Widget>[
                                 ...(searchedResults
-                                    .map((e) => oAddItemButton(data: e))),
+                                    .map((e) => AddItemButton(data: e))),
                               ],
                             ),
                             const SizedBox(
@@ -148,7 +150,7 @@ class exampleAppState extends State<exampleApp> {
                             ),
                             Container(
                               padding: const EdgeInsets.all(20),
-                              child: oCircumscribingIconButton(
+                              child: CircumscribingIconButton(
                                   icon: Icons.keyboard_arrow_left_sharp,
                                   onTap: () {},
                                   backgroundColor: Colors.purple),
@@ -156,7 +158,7 @@ class exampleAppState extends State<exampleApp> {
                             const SizedBox(
                               height: 100,
                             ),
-                            oNeonPoint(
+                            NeonPoint(
                               pointSize: 00,
                               pointColor: Colors.red.shade100,
                               spreadColor: Colors.red,
@@ -167,7 +169,7 @@ class exampleAppState extends State<exampleApp> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                oNeonPoint(
+                                NeonPoint(
                                   pointSize: 00,
                                   pointColor: Colors.blue.shade100,
                                   spreadColor: Colors.blue,
@@ -175,7 +177,7 @@ class exampleAppState extends State<exampleApp> {
                                 const SizedBox(
                                   width: 100,
                                 ),
-                                oNeonPoint(
+                                NeonPoint(
                                   pointSize: 00,
                                   pointColor: Colors.green.shade100,
                                   spreadColor: Colors.green,
@@ -185,7 +187,7 @@ class exampleAppState extends State<exampleApp> {
                             const SizedBox(
                               height: 400,
                             ),
-                            oNeonLine(
+                            NeonLine(
                               spreadColor: Colors.brown,
                               lightSpreadRadius: 30,
                               lightBlurRadius: 90,
@@ -206,16 +208,16 @@ class exampleAppState extends State<exampleApp> {
           Container(
             padding: const EdgeInsets.all(20),
             alignment: Alignment.bottomRight,
-            child: oNeonContainer(
+            child: NeonContainer(
                 spreadColor: Colors.green.shade700,
-                child: oCircumscribingIconButton(
-                    icon: Icons.arrow_right_alt_sharp,
-                    onTap: () {},
-                    backgroundColor: Colors.green.shade700),
                 borderRadius: BorderRadius.circular(100),
                 lightBlurRadius: 100,
                 lightSpreadRadius: 50,
-                borderColor: Colors.green.shade100),
+                borderColor: Colors.green.shade100,
+                child: CircumscribingIconButton(
+                    icon: Icons.arrow_right_alt_sharp,
+                    onTap: () {},
+                    backgroundColor: Colors.green.shade700)),
           ),
         ],
       ),

@@ -1,9 +1,11 @@
 import 'dart:math';
+
 import 'package:flutter/material.dart';
+
 import '../neon_widgets.dart';
 
-const List<Color> RGBCOLORS = [Colors.red, Colors.green, Colors.blue];
-const List<Color> SQUARECOLORS = [
+const List<Color> rgbColors = [Colors.red, Colors.green, Colors.blue];
+const List<Color> squareColors = [
   Colors.yellowAccent,
   Colors.lightGreen,
   Colors.teal,
@@ -11,10 +13,10 @@ const List<Color> SQUARECOLORS = [
 ];
 
 //Triangular progress bar or loader
-class oNeonTriangleVerticesProgressBar extends StatefulWidget {
-  oNeonTriangleVerticesProgressBar(
+class NeonTriangleVerticesProgressBar extends StatefulWidget {
+  const NeonTriangleVerticesProgressBar(
       {Key? key,
-      this.spreadColorsList = RGBCOLORS,
+      this.spreadColorsList = rgbColors,
       this.pointSize = 5,
       this.lightBlurRadius = 80,
       this.lightSpreadRadius = 40,
@@ -24,27 +26,39 @@ class oNeonTriangleVerticesProgressBar extends StatefulWidget {
       this.progressBarRadius = 30})
       : super(key: key);
 
-  List<Color> spreadColorsList;
-  bool flicker;
-  double pointSize;
-  double lightBlurRadius;
-  double lightSpreadRadius;
-  bool randomFlicker;
-  int flickerTimeInMilliSeconds;
-  double progressBarRadius;
+  final List<Color> spreadColorsList;
+  final bool flicker;
+  final double pointSize;
+  final double lightBlurRadius;
+  final double lightSpreadRadius;
+  final bool randomFlicker;
+  final int flickerTimeInMilliSeconds;
+  final double progressBarRadius;
 
   @override
   State<StatefulWidget> createState() {
-    return oNeonTriangleVerticesProgressBarState();
+    return NeonTriangleVerticesProgressBarState();
   }
 }
 
-class oNeonTriangleVerticesProgressBarState
-    extends State<oNeonTriangleVerticesProgressBar>
+class NeonTriangleVerticesProgressBarState
+    extends State<NeonTriangleVerticesProgressBar>
     with TickerProviderStateMixin {
-  late final AnimationController _controller =
-      AnimationController(vsync: this, duration: const Duration(seconds: 2))
-        ..repeat();
+  late final AnimationController _controller;
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    )..repeat();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +72,7 @@ class oNeonTriangleVerticesProgressBarState
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  oFlickerNeonPoint(
+                  FlickerNeonPoint(
                     randomFlicker: widget.randomFlicker,
                     lightSpreadRadius: widget.lightSpreadRadius,
                     lightBlurRadius: widget.lightSpreadRadius,
@@ -74,7 +88,7 @@ class oNeonTriangleVerticesProgressBarState
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      oFlickerNeonPoint(
+                      FlickerNeonPoint(
                         randomFlicker: widget.randomFlicker,
                         lightSpreadRadius: widget.lightSpreadRadius,
                         lightBlurRadius: widget.lightSpreadRadius,
@@ -88,7 +102,7 @@ class oNeonTriangleVerticesProgressBarState
                       SizedBox(
                         width: widget.progressBarRadius * sqrt(3),
                       ),
-                      oFlickerNeonPoint(
+                      FlickerNeonPoint(
                         randomFlicker: widget.randomFlicker,
                         lightSpreadRadius: widget.lightSpreadRadius,
                         lightBlurRadius: widget.lightSpreadRadius,
@@ -110,10 +124,10 @@ class oNeonTriangleVerticesProgressBarState
 }
 
 //Square progress bar or loader
-class oNeonSquareVerticesProgressBar extends StatefulWidget {
-  oNeonSquareVerticesProgressBar(
+class NeonSquareVerticesProgressBar extends StatefulWidget {
+  const NeonSquareVerticesProgressBar(
       {Key? key,
-      this.spreadColorsList = SQUARECOLORS,
+      this.spreadColorsList = squareColors,
       this.pointSize = 5,
       this.lightBlurRadius = 80,
       this.lightSpreadRadius = 40,
@@ -123,27 +137,38 @@ class oNeonSquareVerticesProgressBar extends StatefulWidget {
       this.progressBarRadius = 60})
       : super(key: key);
 
-  List<Color> spreadColorsList;
-  bool flicker;
-  double pointSize;
-  double lightBlurRadius;
-  double lightSpreadRadius;
-  bool randomFlicker;
-  int flickerTimeInMilliSeconds;
-  double progressBarRadius;
+  final List<Color> spreadColorsList;
+  final bool flicker;
+  final double pointSize;
+  final double lightBlurRadius;
+  final double lightSpreadRadius;
+  final bool randomFlicker;
+  final int flickerTimeInMilliSeconds;
+  final double progressBarRadius;
 
   @override
   State<StatefulWidget> createState() {
-    return oNeonSquareVerticesProgressBarState();
+    return NeonSquareVerticesProgressBarState();
   }
 }
 
-class oNeonSquareVerticesProgressBarState
-    extends State<oNeonSquareVerticesProgressBar>
-    with TickerProviderStateMixin {
-  late final AnimationController _controller =
-      AnimationController(vsync: this, duration: const Duration(seconds: 2))
-        ..repeat();
+class NeonSquareVerticesProgressBarState
+    extends State<NeonSquareVerticesProgressBar> with TickerProviderStateMixin {
+  late final AnimationController _controller;
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    )..repeat();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -160,7 +185,7 @@ class oNeonSquareVerticesProgressBarState
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      oFlickerNeonPoint(
+                      FlickerNeonPoint(
                         randomFlicker: widget.randomFlicker,
                         lightSpreadRadius: widget.lightSpreadRadius,
                         lightBlurRadius: widget.lightSpreadRadius,
@@ -174,7 +199,7 @@ class oNeonSquareVerticesProgressBarState
                       SizedBox(
                         width: widget.progressBarRadius,
                       ),
-                      oFlickerNeonPoint(
+                      FlickerNeonPoint(
                         randomFlicker: widget.randomFlicker,
                         lightSpreadRadius: widget.lightSpreadRadius,
                         lightBlurRadius: widget.lightSpreadRadius,
@@ -193,7 +218,7 @@ class oNeonSquareVerticesProgressBarState
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      oFlickerNeonPoint(
+                      FlickerNeonPoint(
                         randomFlicker: widget.randomFlicker,
                         lightSpreadRadius: widget.lightSpreadRadius,
                         lightBlurRadius: widget.lightSpreadRadius,
@@ -207,7 +232,7 @@ class oNeonSquareVerticesProgressBarState
                       SizedBox(
                         width: widget.progressBarRadius,
                       ),
-                      oFlickerNeonPoint(
+                      FlickerNeonPoint(
                         randomFlicker: widget.randomFlicker,
                         lightSpreadRadius: widget.lightSpreadRadius,
                         lightBlurRadius: widget.lightSpreadRadius,
@@ -229,8 +254,8 @@ class oNeonSquareVerticesProgressBarState
 }
 
 //n number vertices polygon progress bar or loader
-class oNeonCustomVerticesProgressBar extends StatefulWidget {
-  oNeonCustomVerticesProgressBar(
+class NeonCustomVerticesProgressBar extends StatefulWidget {
+  const NeonCustomVerticesProgressBar(
       {Key? key,
       required this.number,
       this.pointSize = 3,
@@ -244,29 +269,40 @@ class oNeonCustomVerticesProgressBar extends StatefulWidget {
       this.progressBarRadius = 30})
       : super(key: key);
 
-  int number;
-  bool flicker;
-  double pointSize;
-  double lightBlurRadius;
-  double lightSpreadRadius;
-  bool randomFlicker;
-  int flickerTimeInMilliSeconds;
-  double progressBarRadius;
-  Color spreadColor;
-  bool randomColor;
+  final int number;
+  final bool flicker;
+  final double pointSize;
+  final double lightBlurRadius;
+  final double lightSpreadRadius;
+  final bool randomFlicker;
+  final int flickerTimeInMilliSeconds;
+  final double progressBarRadius;
+  final Color spreadColor;
+  final bool randomColor;
 
   @override
   State<StatefulWidget> createState() {
-    return oNeonCustomVerticesProgressBarState();
+    return NeonCustomVerticesProgressBarState();
   }
 }
 
-class oNeonCustomVerticesProgressBarState
-    extends State<oNeonCustomVerticesProgressBar>
-    with TickerProviderStateMixin {
-  late final AnimationController _controller =
-      AnimationController(vsync: this, duration: const Duration(seconds: 2))
-        ..repeat();
+class NeonCustomVerticesProgressBarState
+    extends State<NeonCustomVerticesProgressBar> with TickerProviderStateMixin {
+  late final AnimationController _controller;
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    )..repeat();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -284,7 +320,7 @@ class oNeonCustomVerticesProgressBarState
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              oFlickerNeonPoint(
+              FlickerNeonPoint(
                 spreadColor: widget.randomColor
                     ? randomColorList[0]
                     : widget.spreadColor,
@@ -311,7 +347,7 @@ class oNeonCustomVerticesProgressBarState
                               (1 - cos(2 * pi * (i - 1) / widget.number))),
                     ),
                     (2 * pi * i / widget.number == pi && widget.number % 2 == 0)
-                        ? oFlickerNeonPoint(
+                        ? FlickerNeonPoint(
                             spreadColor: widget.randomColor
                                 ? randomColorList[i + 1]
                                 : widget.spreadColor,
@@ -327,7 +363,7 @@ class oNeonCustomVerticesProgressBarState
                         : Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              oFlickerNeonPoint(
+                              FlickerNeonPoint(
                                 spreadColor: widget.randomColor
                                     ? randomColorList[i]
                                     : widget.spreadColor,
@@ -345,7 +381,7 @@ class oNeonCustomVerticesProgressBarState
                                   width: 2 *
                                       widget.progressBarRadius *
                                       sin(2 * pi * i / widget.number)),
-                              oFlickerNeonPoint(
+                              FlickerNeonPoint(
                                 spreadColor: widget.randomColor
                                     ? randomColorList[i + 1]
                                     : widget.spreadColor,
@@ -371,8 +407,8 @@ class oNeonCustomVerticesProgressBarState
 }
 
 //Image progress bar or loader
-class oImageProgressBar extends StatefulWidget {
-  oImageProgressBar({
+class ImageProgressBar extends StatefulWidget {
+  const ImageProgressBar({
     Key? key,
     this.pointSize = 5,
     this.lightBlurRadius = 200,
@@ -387,29 +423,39 @@ class oImageProgressBar extends StatefulWidget {
     this.spreadColor = Colors.lightBlueAccent,
   }) : super(key: key);
 
-  bool flicker;
-  double pointSize;
-  double lightBlurRadius;
-  double lightSpreadRadius;
-  bool randomFlicker;
-  int flickerTimeInMilliSeconds;
-  Color spreadColor;
-  bool randomColor;
-  String image;
-  double imageHeight;
-  double imageWidth;
+  final bool flicker;
+  final double pointSize;
+  final double lightBlurRadius;
+  final double lightSpreadRadius;
+  final bool randomFlicker;
+  final int flickerTimeInMilliSeconds;
+  final Color spreadColor;
+  final bool randomColor;
+  final String image;
+  final double imageHeight;
+  final double imageWidth;
 
   @override
-  State<StatefulWidget> createState() {
-    return oImageProgressBarState();
-  }
+  State<StatefulWidget> createState() => ImageProgressBarState();
 }
 
-class oImageProgressBarState extends State<oImageProgressBar>
+class ImageProgressBarState extends State<ImageProgressBar>
     with TickerProviderStateMixin {
-  late final AnimationController _controller =
-      AnimationController(vsync: this, duration: const Duration(seconds: 2))
-        ..repeat();
+  late final AnimationController _controller;
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    )..repeat();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -426,7 +472,7 @@ class oImageProgressBarState extends State<oImageProgressBar>
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
-                      oFlickerNeonPoint(
+                      FlickerNeonPoint(
                         spreadColor: widget.randomColor
                             ? Color((Random().nextDouble() * 0xFFFFFF).toInt())
                                 .withOpacity(1.0)
@@ -449,7 +495,7 @@ class oImageProgressBarState extends State<oImageProgressBar>
                   ),
                 );
               },
-              child: FlutterLogo(size: 200),
+              child: const FlutterLogo(size: 200),
             ),
           ),
         ],

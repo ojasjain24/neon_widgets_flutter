@@ -1,4 +1,4 @@
-<p align="center"> 
+<p align="center">
 <img src = "https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/neon_widgets_logo.png" height = "300" width ="300"/>
 </p>
 
@@ -73,17 +73,17 @@ neonText :
 ```
 // neon text
 
- oNeonText(
+ NeonText(
    text: "Neon text",
    spreadColor: Colors.pink,
    blurRadius: 20,
    textSize: 74,
    textColor: Colors.white,
  ),
- 
+
 // flickering neon text
- 
- oFlickerNeonText(
+
+ FlickerNeonText(
    text: "Flicker neon text",
    flickerTimeInMilliSeconds: 600,
    spreadColor: Colors.blue,
@@ -97,7 +97,7 @@ neonSearchBar :
 <img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/Screenshot%202022-02-21%20110254.png"  >
 
 ```
-oNeonSearchBar()
+NeonSearchBar()
 ```
 
 Chat widgets :
@@ -106,7 +106,7 @@ Chat widgets :
 
 ```
 // Left message card in neon theme
-oNeonLeftMsgCard(
+NeonLeftMsgCard(
   lightBlurRadius: 20,
   lightSpreadRadius: 5,
   msg:
@@ -119,7 +119,7 @@ const SizedBox(
 ),
 
 // Right message card in neon theme
-oNeonRightMsgCard(
+NeonRightMsgCard(
     lightBlurRadius: 20,
     lightSpreadRadius: 10,
     backgroundColor: Colors.deepPurple,
@@ -134,7 +134,7 @@ const SizedBox(
 
 // Left massage card
 
-oLeftMsgCard(
+LeftMsgCard(
     msg:
     "Hi all, this is brand new library that provides most used widgets in neon and normal effect",
     time: "10:45",
@@ -146,7 +146,7 @@ const SizedBox(
 
 // Right massage card
 
-oRightMsgCard(
+RightMsgCard(
     msg:
     "Hi all, this is brand new library that provides most used widgets in neon and normal effect",
     time: "10:45",
@@ -167,7 +167,7 @@ Wrap(
 direction: Axis.horizontal,
 children: <Widget>[
   ...(searchedResults.map((e) =>
-      oNeonAddItemButton(
+      NeonAddItemButton(
           data: e,
           borderColor: Colors.deepOrange.shade50,
           spreadColor: Colors.deepOrange,
@@ -177,24 +177,24 @@ children: <Widget>[
 ),
 ```
 
-oNeonPoint widget :
+NeonPoint widget :
 
 <img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/Screenshot%202022-02-21%20190238.png" >
 
 ```
-oNeonPoint(
+NeonPoint(
   pointSize: 00,
   pointColor: Colors.red.shade100,
   spreadColor: Colors.red,
 ),
 ```
 
-oNeonLine widget :
+NeonLine widget :
 
 <img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/Screenshot%202022-02-21%20190619.png" >
 
 ```
-oNeonLine(
+NeonLine(
   spreadColor: Colors.brown,
   lightSpreadRadius: 30,
   lightBlurRadius: 90,
@@ -208,14 +208,14 @@ Flickering Neon widgets :
 
 ```
 // Flickering neon line
-oFlickerNeonLine(
+FlickerNeonLine(
   spreadColor: Colors.brown,
   lightSpreadRadius: 30,
   lightBlurRadius: 60,
   lineWidth: 300,
   lineHeight: 2,
   lineColor: Colors.brown.shade100,
-  
+
   // flicker rate which is selects a random value by default
   randomFlicker: false,
   flickerTimeInMilliSeconds: 1000,
@@ -224,7 +224,7 @@ oFlickerNeonLine(
 
 ```
 // Flickering neon point
-oFlickerNeonPoint(
+FlickerNeonPoint(
   pointSize: 010,
   pointColor: Colors.blue.shade100,
   spreadColor: Colors.blue,
@@ -233,7 +233,7 @@ oFlickerNeonPoint(
 
 ```
 // Flickering neon container
-oFlickerNeonContainer(
+FlickerNeonContainer(
     spreadColor: Colors.green.shade700,
     child: WIDGET
 ),
@@ -244,16 +244,16 @@ Loaders :
 ```
  //loader type 1 : loader made of polynomial of n number of side
  oNeonShapeVerticesProgressBar(number: 4)
- 
+
  //loader type 2 : triangle shape with all colors customizable
- oNeonTriangleVerticesProgressBar()
- 
+ NeonTriangleVerticesProgressBar()
+
  //loader type 3 : square shape with all colors customizable
- oNeonSquareVerticesProgressBar()
- 
- //loader type 4 : image 
- oImageProgressBar(image : "assets/images/abc.png")
- 
+ NeonSquareVerticesProgressBar()
+
+ //loader type 4 : image
+ ImageProgressBar(image : "assets/images/abc.png")
+
 ```
 
 Non Neon widgets :
@@ -261,7 +261,7 @@ Non Neon widgets :
 <img src="https://raw.githubusercontent.com/ojasjain24/neon_widgets_flutter/master/demos/Screenshot%202022-02-21%20110545.png" >
 
 ```
-oSearchBar(),
+SearchBar(),
 const SizedBox(
   height: 20,
 ),
@@ -269,7 +269,7 @@ Wrap(
   direction: Axis.horizontal,
   children: <Widget>[
     ...(searchedResults
-        .map((e) => oAddItemButton(data: e))),
+        .map((e) => AddItemButton(data: e))),
   ],
 ),
 const SizedBox(
@@ -277,7 +277,7 @@ const SizedBox(
 ),
 Container(
   padding: const EdgeInsets.all(20),
-  child: oCircumscribingIconButton(
+  child: CircumscribingIconButton(
       icon: Icons.keyboard_arrow_left_sharp,
       onTap: () {},
       backgroundColor: Colors.purple),
@@ -289,9 +289,9 @@ Container(
 Example code provided
 
 ```
-oNeonContainer(
+NeonContainer(
   spreadColor: Colors.green.shade700,
-  child: oCircumscribingIconButton(
+  child: CircumscribingIconButton(
         icon: Icons.arrow_right_alt_sharp,
         onTap: () {},
         backgroundColor: Colors.green.shade700),

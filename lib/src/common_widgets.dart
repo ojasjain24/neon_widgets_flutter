@@ -39,9 +39,9 @@ AppBar oAppBar({
   );
 }
 
-//oCircumscribingIconButton
-class oCircumscribingIconButton extends StatefulWidget {
-  oCircumscribingIconButton({
+//CircumscribingIconButton
+class CircumscribingIconButton extends StatefulWidget {
+  const CircumscribingIconButton({
     Key? key,
     required this.icon,
     required this.onTap,
@@ -49,18 +49,18 @@ class oCircumscribingIconButton extends StatefulWidget {
     this.backgroundColor = Colors.blue,
   }) : super(key: key);
 
-  IconData icon;
-  void Function()? onTap;
-  Color iconColor;
-  Color backgroundColor;
+  final IconData icon;
+  final void Function()? onTap;
+  final Color iconColor;
+  final Color backgroundColor;
 
   @override
   State<StatefulWidget> createState() {
-    return oCircumscribingIconButtonState();
+    return CircumscribingIconButtonState();
   }
 }
 
-class oCircumscribingIconButtonState extends State<oCircumscribingIconButton> {
+class CircumscribingIconButtonState extends State<CircumscribingIconButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -82,9 +82,9 @@ class oCircumscribingIconButtonState extends State<oCircumscribingIconButton> {
   }
 }
 
-//oSearchBar
-class oSearchBar extends StatefulWidget {
-  oSearchBar({
+//SearchBar
+class SearchBar extends StatefulWidget {
+  const SearchBar({
     Key? key,
     this.hint = "Search",
     this.icon = Icons.search,
@@ -99,25 +99,25 @@ class oSearchBar extends StatefulWidget {
     this.hintFontSize = 15,
   }) : super(key: key);
 
-  String hint;
-  IconData icon;
-  void Function(String?)? onSearchChanged;
-  void Function()? onSearchTap;
-  EdgeInsets padding;
-  BorderRadius borderRadius;
-  Color backgroundColor;
-  Color hintColor;
-  Color iconColor;
-  double iconSize;
-  double hintFontSize;
+  final String hint;
+  final IconData icon;
+  final void Function(String?)? onSearchChanged;
+  final void Function()? onSearchTap;
+  final EdgeInsets padding;
+  final BorderRadius borderRadius;
+  final Color backgroundColor;
+  final Color hintColor;
+  final Color iconColor;
+  final double iconSize;
+  final double hintFontSize;
 
   @override
   State<StatefulWidget> createState() {
-    return oSearchBarState();
+    return SearchBarState();
   }
 }
 
-class oSearchBarState extends State<oSearchBar> {
+class SearchBarState extends State<SearchBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -159,9 +159,9 @@ class oSearchBarState extends State<oSearchBar> {
   }
 }
 
-//oAddItemButton
-class oAddItemButton extends StatefulWidget {
-  oAddItemButton({
+//AddItemButton
+class AddItemButton extends StatefulWidget {
+  const AddItemButton({
     Key? key,
     this.data = "",
     this.icon = Icons.add,
@@ -175,24 +175,24 @@ class oAddItemButton extends StatefulWidget {
     this.iconColor = Colors.green,
   }) : super(key: key);
 
-  String data;
-  IconData icon;
-  void Function()? onPressed;
-  Color textColor;
-  EdgeInsets margin;
-  EdgeInsets padding;
-  Color backgroundColor;
-  BorderRadius borderRadius;
-  double iconSize;
-  Color iconColor;
+  final String data;
+  final IconData icon;
+  final void Function()? onPressed;
+  final Color textColor;
+  final EdgeInsets margin;
+  final EdgeInsets padding;
+  final Color backgroundColor;
+  final BorderRadius borderRadius;
+  final double iconSize;
+  final Color iconColor;
 
   @override
   State<StatefulWidget> createState() {
-    return oAddItemButtonState();
+    return AddItemButtonState();
   }
 }
 
-class oAddItemButtonState extends State<oAddItemButton> {
+class AddItemButtonState extends State<AddItemButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -229,9 +229,9 @@ class oAddItemButtonState extends State<oAddItemButton> {
   }
 }
 
-//oRightMsgCard
-class oRightMsgCard extends StatefulWidget {
-  oRightMsgCard(
+//RightMsgCard
+class RightMsgCard extends StatefulWidget {
+  const RightMsgCard(
       {Key? key,
       this.msg = "",
       this.time = "",
@@ -242,21 +242,21 @@ class oRightMsgCard extends StatefulWidget {
       this.borderRadius = 10})
       : super(key: key);
 
-  String msg;
-  String time;
-  Color backgroundColor;
-  double msgFontSize;
-  double timeFontSize;
-  Color textColor;
-  double borderRadius;
+  final String msg;
+  final String time;
+  final Color backgroundColor;
+  final double msgFontSize;
+  final double timeFontSize;
+  final Color textColor;
+  final double borderRadius;
 
   @override
   State<StatefulWidget> createState() {
-    return oRightMsgCardState();
+    return RightMsgCardState();
   }
 }
 
-class oRightMsgCardState extends State<oRightMsgCard> {
+class RightMsgCardState extends State<RightMsgCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -296,9 +296,9 @@ class oRightMsgCardState extends State<oRightMsgCard> {
   }
 }
 
-//oLeftMsgCard
-class oLeftMsgCard extends StatefulWidget {
-  oLeftMsgCard(
+//LeftMsgCard
+class LeftMsgCard extends StatefulWidget {
+  const LeftMsgCard(
       {Key? key,
       this.msg = "",
       this.time = "",
@@ -309,21 +309,21 @@ class oLeftMsgCard extends StatefulWidget {
       this.borderRadius = 10})
       : super(key: key);
 
-  String msg;
-  String time;
-  Color backgroundColor;
-  double msgFontSize;
-  double timeFontSize;
-  Color textColor;
-  double borderRadius;
+  final String msg;
+  final String time;
+  final Color backgroundColor;
+  final double msgFontSize;
+  final double timeFontSize;
+  final Color textColor;
+  final double borderRadius;
 
   @override
   State<StatefulWidget> createState() {
-    return oLeftMsgCardState();
+    return LeftMsgCardState();
   }
 }
 
-class oLeftMsgCardState extends State<oLeftMsgCard> {
+class LeftMsgCardState extends State<LeftMsgCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -364,25 +364,25 @@ class oLeftMsgCardState extends State<oLeftMsgCard> {
 }
 
 // Random Flicker
-class oFlicker extends StatefulWidget {
-  oFlicker({
+class Flicker extends StatefulWidget {
+  const Flicker({
     Key? key,
     required this.child,
     this.randomFlicker = true,
     this.flickerTimeInMilliSeconds = 3000,
   }) : super(key: key);
 
-  Widget child;
-  bool randomFlicker;
-  int flickerTimeInMilliSeconds;
+  final Widget child;
+  final bool randomFlicker;
+  final int flickerTimeInMilliSeconds;
 
   @override
   State<StatefulWidget> createState() {
-    return oFlickerState();
+    return FlickerState();
   }
 }
 
-class oFlickerState extends State<oFlicker> with TickerProviderStateMixin {
+class FlickerState extends State<Flicker> with TickerProviderStateMixin {
   late AnimationController controller;
   late Animation<double> curve;
   int randomNumber = Random().nextInt(3000);

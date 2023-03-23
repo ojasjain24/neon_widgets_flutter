@@ -47,3 +47,6 @@ neon text fixes
 ## 0.1.2
 
 properties fixes
+
+## 0.2.0
+- Effective Dart implementation

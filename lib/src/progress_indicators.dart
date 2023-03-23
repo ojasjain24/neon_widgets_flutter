@@ -6,10 +6,10 @@ import '../neon_widgets.dart';
 
 const List<Color> rgbColors = [Colors.red, Colors.green, Colors.blue];
 const List<Color> squareColors = [
-  Colors.yellowAccent,
-  Colors.lightGreen,
-  Colors.teal,
-  Colors.orangeAccent
+  Colors.blue,
+  Colors.red,
+  Colors.yellow,
+  Colors.green
 ];
 
 //Triangular progress bar or loader
@@ -45,6 +45,7 @@ class NeonTriangleVerticesProgressBarState
     extends State<NeonTriangleVerticesProgressBar>
     with TickerProviderStateMixin {
   late final AnimationController _controller;
+
   @override
   void initState() {
     super.initState();
@@ -155,6 +156,7 @@ class NeonSquareVerticesProgressBar extends StatefulWidget {
 class NeonSquareVerticesProgressBarState
     extends State<NeonSquareVerticesProgressBar> with TickerProviderStateMixin {
   late final AnimationController _controller;
+
   @override
   void initState() {
     super.initState();
@@ -289,6 +291,7 @@ class NeonCustomVerticesProgressBar extends StatefulWidget {
 class NeonCustomVerticesProgressBarState
     extends State<NeonCustomVerticesProgressBar> with TickerProviderStateMixin {
   late final AnimationController _controller;
+
   @override
   void initState() {
     super.initState();
@@ -442,6 +445,7 @@ class ImageProgressBar extends StatefulWidget {
 class ImageProgressBarState extends State<ImageProgressBar>
     with TickerProviderStateMixin {
   late final AnimationController _controller;
+
   @override
   void initState() {
     super.initState();

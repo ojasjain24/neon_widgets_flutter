@@ -678,29 +678,34 @@ class FlickerNeonContainerState extends State<FlickerNeonContainer>
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
-        duration: Duration(
-            milliseconds: widget.randomFlicker
-                ? randomNumber
-                : widget.flickerTimeInMilliSeconds),
-        vsync: this);
+    if (widget.flickerTimeInMilliSeconds == 0) {
+      controller = AnimationController(vsync: this);
+      controller.value = 1;
+    } else {
+      controller = AnimationController(
+          duration: Duration(
+              milliseconds: widget.randomFlicker
+                  ? randomNumber
+                  : widget.flickerTimeInMilliSeconds),
+          vsync: this);
 
-    controller.addStatusListener((status) {
-      randomNumber = Random().nextInt(widget.flickerTimeInMilliSeconds);
-      setState(() {});
-      if (status == AnimationStatus.completed) {
-        controller.repeat(
-            reverse: true,
-            period: Duration(
-                milliseconds: widget.randomFlicker
-                    ? randomNumber
-                    : widget.flickerTimeInMilliSeconds));
-      } else if (status == AnimationStatus.dismissed) {
-        sleep(const Duration(milliseconds: 200));
-        controller.forward();
-      }
-    });
-    controller.forward();
+      controller.addStatusListener((status) {
+        randomNumber = Random().nextInt(widget.flickerTimeInMilliSeconds);
+        setState(() {});
+        if (status == AnimationStatus.completed) {
+          controller.repeat(
+              reverse: true,
+              period: Duration(
+                  milliseconds: widget.randomFlicker
+                      ? randomNumber
+                      : widget.flickerTimeInMilliSeconds));
+        } else if (status == AnimationStatus.dismissed) {
+          sleep(const Duration(milliseconds: 200));
+          controller.forward();
+        }
+      });
+      controller.forward();
+    }
   }
 
   @override
@@ -905,6 +910,7 @@ class FlickerNeonTextState extends State<FlickerNeonText>
     with TickerProviderStateMixin {
   late AnimationController controller;
   int randomNumber = Random().nextInt(3000);
+
   @override
   void dispose() {
     controller.dispose();
@@ -914,29 +920,34 @@ class FlickerNeonTextState extends State<FlickerNeonText>
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
-        duration: Duration(
-            milliseconds: widget.randomFlicker
-                ? randomNumber
-                : widget.flickerTimeInMilliSeconds),
-        vsync: this);
+    if (widget.flickerTimeInMilliSeconds == 0) {
+      controller = AnimationController(vsync: this);
+      controller.value = 1;
+    } else {
+      controller = AnimationController(
+          duration: Duration(
+              milliseconds: widget.randomFlicker
+                  ? randomNumber
+                  : widget.flickerTimeInMilliSeconds),
+          vsync: this);
 
-    controller.addStatusListener((status) {
-      randomNumber = Random().nextInt(widget.flickerTimeInMilliSeconds);
-      setState(() {});
-      if (status == AnimationStatus.completed) {
-        controller.repeat(
-            reverse: true,
-            period: Duration(
-                milliseconds: widget.randomFlicker
-                    ? randomNumber
-                    : widget.flickerTimeInMilliSeconds));
-      } else if (status == AnimationStatus.dismissed) {
-        sleep(const Duration(milliseconds: 200));
-        controller.forward();
-      }
-    });
-    controller.forward();
+      controller.addStatusListener((status) {
+        randomNumber = Random().nextInt(widget.flickerTimeInMilliSeconds);
+        setState(() {});
+        if (status == AnimationStatus.completed) {
+          controller.repeat(
+              reverse: true,
+              period: Duration(
+                  milliseconds: widget.randomFlicker
+                      ? randomNumber
+                      : widget.flickerTimeInMilliSeconds));
+        } else if (status == AnimationStatus.dismissed) {
+          sleep(const Duration(milliseconds: 200));
+          controller.forward();
+        }
+      });
+      controller.forward();
+    }
   }
 
   @override

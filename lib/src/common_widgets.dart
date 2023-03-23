@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 //oAppBar
-AppBar oAppBar({
+AppBar neonAppBar({
   required context,
   required String heading,
   IconData icon = Icons.arrow_back,
@@ -370,10 +370,12 @@ class Flicker extends StatefulWidget {
     required this.child,
     this.randomFlicker = true,
     this.flickerTimeInMilliSeconds = 3000,
+    this.curve = Curves.easeInExpo,
   }) : super(key: key);
 
   final Widget child;
   final bool randomFlicker;
+  final Curve curve;
   final int flickerTimeInMilliSeconds;
 
   @override
@@ -397,9 +399,7 @@ class FlickerState extends State<Flicker> with TickerProviderStateMixin {
                 : widget.flickerTimeInMilliSeconds),
         vsync: this);
     curve = CurvedAnimation(
-        parent: controller,
-        curve: Curves.easeInExpo,
-        reverseCurve: Curves.bounceIn);
+        parent: controller, curve: widget.curve, reverseCurve: Curves.bounceIn);
 
     controller.addStatusListener((status) {
       randomNumber = Random().nextInt(3000);
@@ -417,6 +417,12 @@ class FlickerState extends State<Flicker> with TickerProviderStateMixin {
       }
     });
     controller.forward();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   @override

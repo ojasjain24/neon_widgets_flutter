@@ -11,6 +11,20 @@
 
 ## Live Example : https://ojas-jain.web.app/#/
 
+
+## Neon Widgets 2.0 => Breaking Changes
+
+Animation disposal issues resolved. and every class' name have been changed, to comply with the standard dart syntax.
+
+#### All the class names have been changed, to comply with the standard dart syntax. Previously every class had the name convention such that non-neon class' name started with the letter 'o', and neon classes started with 'oNeon'. But in the update, the neon class names now starts with 'Neon', and the letter 'o' has been removed from the starting of non-neon classes.
+
+#### For example :
+1 : 'oNeonContainer' is now changed to 'NeonContainer'.
+
+2 : 'oNeonCustomVerticesProgressBar' is now changed to 'NeonCustomVerticesProgressBar'.
+
+3 : 'oSearchBar' is now changed to 'SearchBar'.
+
 ## Getting started
 
 Readme Changelog Installing Versions Scores Admin Activity log Use this package as a library Depend
@@ -34,7 +48,7 @@ This will add a line like this to your package's pubspec.yaml (and run an implic
 
 ```
 dependencies:
-  neon_widgets: ^0.1.2
+  neon_widgets: ^2.0.0
 ```
 
 Alternatively, your editor might support dart pub get or flutter pub get. Check the docs for your
@@ -315,4 +329,6 @@ create issue : https://github.com/ojasjain24/neon_widgets_flutter/issues
 1 : create an issue describing the feature.
 
 2 : comment on this issue that you are interested in resolving this issue.
+
+#### 3 : Create a Pull request in dev branch.
 

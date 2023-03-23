@@ -48,5 +48,6 @@ neon text fixes
 
 properties fixes
 
-## 0.2.0
-- Effective Dart implementation
+## 2.0.0
+- Breaking changes : Class names changed to comply with the standard dart syntax. 
+- Animation disposal issues resolved.

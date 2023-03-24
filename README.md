@@ -257,7 +257,7 @@ Loaders :
 
 ```
  //loader type 1 : loader made of polynomial of n number of side
- oNeonShapeVerticesProgressBar(number: 4)
+ NeonShapeVerticesProgressBar(number: 4)
 
  //loader type 2 : triangle shape with all colors customizable
  NeonTriangleVerticesProgressBar()
